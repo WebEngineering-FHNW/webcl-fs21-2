@@ -1,5 +1,6 @@
 # webcl-fs21-2
 **Klasse**: 6iCbb
+
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 ## Woche 1 - Anschluss an WebPr finden
 **Datum/Uhrzeit:** 23.02.2021 - 12:15 bis 15:00
