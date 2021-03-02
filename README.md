@@ -27,7 +27,7 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
 - Einführung Attribute & LiveCoding Presentation-Model
 
 ### Empfohlene Aktivitäten auf nächste Woche
-- Livecoding dieser Woche nochmals anschauen und nachvollziehen (Als Einstiegspunkt am besten Vew.html & Commit-History)
+- Livecoding dieser Woche nochmals anschauen und nachvollziehen (Als Einstiegspunkt am besten View.html & Commit-History)
 
 ### Vergebene Aufgaben
 - Master-Detail-View (L.Kern & R.Winkelmann)
