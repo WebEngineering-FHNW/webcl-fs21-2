@@ -973,7 +973,7 @@ const dataflow = Suite("dataflow");
 dataflow.add("value", assert => {
 
     const z = DataFlowVariable(() => x() + y());    // z depends on x and y, which are set later...
-    const x = DataFlowVariable(() => y());          // x depends on y, which is set later...
+    const x = DataFlowVariable(() => y());         // x depends on y, which is set later...
     const y = DataFlowVariable(() => 1);
 
     assert.is(z(), 2);
@@ -1047,54 +1047,24 @@ dataflow.add("scheduler", assert => {
 
 dataflow.run();
 
-const Attribute = value => {
-
-    const valueObs = Observable(value);
-    const validObs = Observable(true);
-    const setConverter = newConverter => new newConverter;
-
-    return { valueObs, validObs, setConverter }
-};
-
-// stand-in for an asynchronous service
-
-const fortunes = [
-    "Do the WebPr Homework",
-    "Care for the JavaScript Toolbox",
-    "Watch the recommended videos",
-    "Read the recommended chapters in You-dont-know-JS",
-    "Do the dataflow excel challenge!"
-];
-
-function fortuneService(whenDone) {
-    setTimeout(
-        () => whenDone(fortunes[Math.floor((Math.random() * fortunes.length))]),
-        Math.floor((Math.random() * 3000))
-    );
-}
-
 const TodoController = () => {
 
-    const Todo = () => {                               // facade
-        const textAttr = Attribute("text");
-        const doneAttr = Attribute(false);
-
-        textAttr.setConverter( input => input.toUpperCase() );
-        textAttr.setValidator( input => input.length >= 3   );
-
+    const Todo = () => {                                // facade
+        const textAttr = Observable("text");            // we current don't expose it as we don't use it elsewhere
+        const doneAttr = Observable(false);
         return {
-            getDone:            doneAttr.valueObs.getValue,
-            setDone:            doneAttr.valueObs.setValue,
-            onDoneChanged:      doneAttr.valueObs.onChange,
-            getText:            textAttr.valueObs.getValue,
-            setText:            textAttr.setConvertedValue,
-            onTextChanged:      textAttr.valueObs.onChange,
-            onTextValidChanged: textAttr.validObs.onChange,
+            getDone:       doneAttr.getValue,
+            setDone:       doneAttr.setValue,
+            onDoneChanged: doneAttr.onChange,
+            setText:       textAttr.setValue,
+            getText:       textAttr.getValue,
+            onTextChanged: textAttr.onChange,
         }
     };
 
     const todoModel = ObservableList([]); // observable array of Todos, this state is private
     const scheduler = Scheduler();
+    // todo: we need a scheduler
 
     const addTodo = () => {
         const newTodo = Todo();
@@ -1110,12 +1080,15 @@ const TodoController = () => {
         newTodo.setText('...');
 
         scheduler.add( ok =>
-           fortuneService( text => {
+           fortuneService( text => {        // todo: schedule the fortune service and proceed when done
                    newTodo.setText(text);
                    ok();
                }
            )
+
         );
+
+
 
     };
 
@@ -1160,15 +1133,7 @@ const TodoItemsView = (todoController, rootElement) => {
             removeMe();
         } );
 
-        inputElement.oninput = _ => todo.setText(inputElement.value);
-
         todo.onTextChanged(() => inputElement.value = todo.getText());
-
-        todo.onTextValidChanged(
-            valid => valid
-              ? inputElement.classList.remove("invalid")
-              : inputElement.classList.add("invalid")
-        );
 
         rootElement.appendChild(deleteButton);
         rootElement.appendChild(inputElement);
@@ -1311,34 +1276,8 @@ todoSuite.add("todo-memory-leak-2", assert => {  // variant with listener identi
 
 todoSuite.run();
 
-const pmSuite = Suite("presModel");
-
-pmSuite.add("attr-value", assert => {
-    const attr = Attribute("init");
-    assert.is(attr.valueObs.getValue(), "init");
-    assert.is(attr.validObs.getValue(), true);  // default
-});
-
-pmSuite.add("attr-convert", assert => {
-    const attr = Attribute("init");
-    attr.setConverter(str => str.toUpperCase());
-    assert.is(attr.valueObs.getValue(), "INIT"); // existing value is converted
-    attr.setConvertedValue("xxx");               // specialized function: ...
-    assert.is(attr.valueObs.getValue(), "XXX");  // ... converted
-    attr.valueObs.setValue("xxx");               // direct access to observable function: ...
-    assert.is(attr.valueObs.getValue(), "xxx");  // ... does _not_ convert
-});
-
-pmSuite.add("attr-valid", assert => {
-    const attr = Attribute("init");
-    let   valid = undefined;
-    attr.validObs.onChange(x => valid = x);
-    assert.is(valid, true);
-    attr.setValidator( val => val.length > 4);
-    assert.is(valid, false);
-    attr.setConvertedValue("12345");
-    assert.is(valid, true);
-});
-
-
-pmSuite.run();
+// importing all tests that make up the suite of tests that are build on the ES6 module system
+// import './gauge/gaugeTest.js'
+// import './mod/modTest.js'
+// import './person/PersonTest.js'
+// import './crazy/crazyTest.js'

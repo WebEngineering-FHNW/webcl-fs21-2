@@ -9,16 +9,15 @@ const Attribute = value => {
     const valueObs = Observable(value);
     const validObs = Observable(true);
 
-    // todo: add required functions here
-
-    let converter = id;
+    let   converter    = id
     const setConverter = newConverter => {
-        converter = new newConverter;
+        converter = newConverter;
         setConvertedValue(valueObs.getValue());
-    };
+    }
 
-    const setValidator = validator => valueObs.onChange(newValue => valueObs.setValue(validator(newValue)) );
-    const setConvertedValue = newValue => valueObs.setValue(converter(newValue));
+    const setValidator = validator => valueObs.onChange(newValue => validObs.setValue( validator(newValue) ));
+
+    const setConvertedValue = newValue => valueObs.setValue( converter(newValue) );
 
     return { valueObs, validObs, setConverter, setValidator, setConvertedValue }
 };
