@@ -32,3 +32,24 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
 ### Vergebene Aufgaben
 - Master-Detail-View (L.Kern & R.Winkelmann)
 - Media Queries (J.Hadorn & J.Hänggi)
+
+## Woche 3 - Attribute Projector
+**Datum/Uhrzeit:** 09.03.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges [Goodie: CSS Triangle](./week3/CSSTriangle.html) ([Border](https://developer.mozilla.org/de/docs/Web/CSS/border), [clip-path](https://developer.mozilla.org/de/docs/Web/CSS/clip-path), [Filter](https://developer.mozilla.org/de/docs/Web/CSS/filter), [box-shadow](https://developer.mozilla.org/de/docs/Web/CSS/box-shadow))
+- Präsentation der Aufgaben auf diese Woche
+    - Media Queries (J.Hadorn & J.Hänggi)
+        - [Github Repo](https://github.com/Hazzeldorn/MediaQueriesSummary)
+        - Timestamps im Recording (1. Lektion): Vorstellung [28:30] - [40:00], Fragen [40:00 - 1:02:30]
+    - Master-Detail-View (L.Kern & R.Winkelmann)
+        - [Github Repo](https://github.com/lukecore/webcl-fs21-2/tree/master-detail-view)
+        - Timestamps im Recording (2. Lektion): Vorstellung [0:50] - [14:20]
+- Attribute Projector
+    - reichhaltige Attribute
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Review von Attribute Projector
+
+### Vergebene Aufgaben
+- Kurzeinführung in JSDoc (L.Jacobs & R.Koch)
