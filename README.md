@@ -53,3 +53,23 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
 
 ### Vergebene Aufgaben
 - Kurzeinführung in JSDoc (L.Jacobs & R.Koch)
+
+## Woche 4 - Master Detail & spezialisierter Projektor
+**Datum/Uhrzeit:** 16.03.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges [Goodie: CSS Triangle](./week4/Goodie-4-CSSCollapse.html) ([Custom-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), [display](https://developer.mozilla.org/de/docs/Web/CSS/display)/[visibility](https://developer.mozilla.org/de/docs/Web/CSS/visibility), [Sibling selector](https://developer.mozilla.org/de/docs/Web/CSS/Adjacent_sibling_combinator))
+  - Timestamps im Recording(1. Lektion): [2:30] - [43:00]
+- Präsentation der Aufgaben auf diese Woche
+    - Kurzeinführung in JSDoc (L.Jacobs & R.Koch)
+        - [Github Repo](https://github.com/leonievaynie/JSDoc) mit Präsentation und Beispielen
+        - Timestamps im Recording (2. Lektion): Vorstellung [0:30] - [14:00], Fragen [14:00] - [29:30]
+        - [Praxisbeispiel](https://github.com/mattwolf-corporation/ip6_lambda-calculus-in-js) - Projektarbeit mit einer guten Dokumentation
+- Spezialisierter Projector für Person
+  - Timestamps im Recording (3. Lektion gesamt)
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Livecoding der 3. Lektion nachvollziehen (siehe Recording). Am besten einen Teil herauslöschen (Vorschlag: die mit "todo" markierten Stellen im Ausgangscode) und probieren, diese Teile selbst zu programmieren
+
+### Vergebene Aufgaben
+- Tests für Master-Detail vervollständigen (O.Studer & R.von Arx)
