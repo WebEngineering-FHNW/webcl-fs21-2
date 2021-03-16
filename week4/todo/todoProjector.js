@@ -52,7 +52,7 @@ const todoItemProjector = (todoController, rootElement, todo) => {
     const checkboxElement   = todoDoneProjector(todo);
 
     todoController.onTodoRemove( (removedTodo, removeMe) => {
-        if (removedTodo !== todo) return; // guard clause
+        if (removedTodo !== todo) return;
         rootElement.removeChild(deleteButton);
         rootElement.removeChild(inputElement);
         rootElement.removeChild(checkboxElement);
