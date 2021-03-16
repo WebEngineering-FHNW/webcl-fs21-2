@@ -20,7 +20,7 @@
         }
 
         /* collapsed div todo: change css selector*/
-        .changeme {
+        input[type=checkbox]:checked + label.toggle + div.collapsible {
             max-height: 0;
             transition:  max-height 0.5s ease-out;
         }
@@ -44,7 +44,7 @@
         }
 
         /* todo rotate arrow on collapse */
-        .changeme {
+        input[type=checkbox].hidden:checked + label.toggle::before {
             transform: rotate(-90deg);
             transition: transform 0.5s;
         }
@@ -58,6 +58,14 @@
 
 <input id ="toggle" class="hidden" type="checkbox">
 <label for="toggle" class="toggle"> &nbsp; Collapsible Section </label>
+<div class="collapsible">
+    <p>collapsible content 1</p>
+    <p>collapsible content 2</p>
+    <p>collapsible content 3</p>
+</div>
+
+<input id ="toggle2" class="hidden" type="checkbox">
+<label for="toggle2" class="toggle"> &nbsp; Collapsible Section </label>
 <div class="collapsible">
     <p>collapsible content 1</p>
     <p>collapsible content 2</p>
