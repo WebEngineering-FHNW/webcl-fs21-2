@@ -18,7 +18,7 @@ function setup() {
 }
 
 personSuite.add("crud", assert => {
-    const {masterContainer, detailContainer, masterController, selectionController} = setup();
+    const {masterContainer, masterController } = setup();
     const elementsPerRow = 3;
 
     assert.is(masterContainer.children.length, 0*elementsPerRow);
@@ -37,7 +37,7 @@ personSuite.add("crud", assert => {
 });
 
 personSuite.add("update selection in detailContainer", assert => {
-    const {masterContainer, detailContainer, masterController, selectionController} = setup();
+    const {masterContainer, detailContainer, masterController} = setup();
 
     //default should be empty
     assert.is(detailContainer.querySelector("#firstname").value, '');
@@ -59,7 +59,7 @@ personSuite.add("update selection in detailContainer", assert => {
 });
 
 personSuite.add("update attributes when changed", assert => {
-    const {masterContainer, detailContainer, masterController, selectionController} = setup();
+    const {masterContainer, detailContainer, masterController} = setup();
 
     //add Person, this should automatically select it in DetailView
     masterController.addPerson();
@@ -80,7 +80,7 @@ personSuite.add("update attributes when changed", assert => {
 
 
 personSuite.add("clear selection", assert => {
-    const {masterContainer, detailContainer, masterController, selectionController} = setup();
+    const {detailContainer, masterController, selectionController} = setup();
 
     masterController.addPerson();
     assert.is(detailContainer.querySelector("#firstname").value, 'Monika');
