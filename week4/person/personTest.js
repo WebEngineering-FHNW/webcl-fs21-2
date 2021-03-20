@@ -4,56 +4,40 @@ import { Suite }                from "../test/test.js";
 
 const personSuite = Suite("person");
 
-personSuite.add("crud", assert => {
-
-    // setup
+function setup() {
     const masterContainer = document.createElement("div");
     const detailContainer = document.createElement("div");
     detailContainer.innerHTML = "<div>to replace</div>";
 
-    const masterController    = MasterController();
+    const masterController = MasterController();
     const selectionController = SelectionController();
-
-    // create the sub-views, incl. binding
 
     MasterView(masterController, selectionController, masterContainer);
     DetailView(selectionController, detailContainer);
+    return {masterContainer, detailContainer, masterController, selectionController};
+}
 
+personSuite.add("crud", assert => {
+    const {masterContainer, detailContainer, masterController, selectionController} = setup();
     const elementsPerRow = 3;
 
     assert.is(masterContainer.children.length, 0*elementsPerRow);
 
     masterController.addPerson();
-
     assert.is(masterContainer.children.length, 1*elementsPerRow);
 
     masterController.addPerson();
-
     assert.is(masterContainer.children.length, 2*elementsPerRow);
 
     const firstInput = masterContainer.querySelectorAll("input[type=text]")[0];
     const firstDeleteButton = masterContainer.querySelectorAll("button")[0];
 
     firstDeleteButton.click();
-
     assert.is(masterContainer.children.length, 1*elementsPerRow);
-
-
 });
 
-// todo: test for memory leak (difficult)
-
 personSuite.add("update selection in detailContainer", assert => {
-    // setup
-    const masterContainer = document.createElement("div");
-    const detailContainer = document.createElement("div");
-    detailContainer.innerHTML = "<div>to replace</div>";
-
-    const masterController    = MasterController();
-    const selectionController = SelectionController();
-
-    MasterView(masterController, selectionController, masterContainer);
-    DetailView(selectionController, detailContainer);
+    const {masterContainer, detailContainer, masterController, selectionController} = setup();
 
     //default should be empty
     assert.is(detailContainer.querySelector("#firstname").value, '');
@@ -75,16 +59,7 @@ personSuite.add("update selection in detailContainer", assert => {
 });
 
 personSuite.add("update attributes when changed", assert => {
-    // setup
-    const masterContainer = document.createElement("div");
-    const detailContainer = document.createElement("div");
-    detailContainer.innerHTML = "<div>to replace</div>";
-
-    const masterController    = MasterController();
-    const selectionController = SelectionController();
-
-    MasterView(masterController, selectionController, masterContainer);
-    DetailView(selectionController, detailContainer);
+    const {masterContainer, detailContainer, masterController, selectionController} = setup();
 
     //add Person, this should automatically select it in DetailView
     masterController.addPerson();
@@ -93,9 +68,8 @@ personSuite.add("update attributes when changed", assert => {
     detailContainer.querySelector("#firstname").value = "Monika 1234";
     detailContainer.querySelector("#firstname").click()
 
-    //check
     let masterFirstname = masterContainer.querySelectorAll("input[type=text]")[0];
-    //assert.is(firstname.value, 'Monika 1234');  --> not working yet
+    //assert.is(masterFirstname.value, 'Monika 1234'); todo
 
     // now the other way around
     masterFirstname.value = 'Monika'
@@ -103,22 +77,21 @@ personSuite.add("update attributes when changed", assert => {
 });
 
 
+
+
 personSuite.add("clear selection", assert => {
-    // setup
-    const masterContainer = document.createElement("div");
-    const detailContainer = document.createElement("div");
-    detailContainer.innerHTML = "<div>to replace</div>";
+    const {masterContainer, detailContainer, masterController, selectionController} = setup();
 
-    const masterController    = MasterController();
-    const selectionController = SelectionController();
+    masterController.addPerson();
+    assert.is(detailContainer.querySelector("#firstname").value, 'Monika');
 
-    MasterView(masterController, selectionController, masterContainer);
-    DetailView(selectionController, detailContainer);
-
+    selectionController.clearSelection();
+    assert.is(detailContainer.querySelector("#firstname").value, '');
 });
 
 
 personSuite.add("test for memory leak (difficult)", assert => {
+// todo: test for memory leak (difficult)
 
 });
 
