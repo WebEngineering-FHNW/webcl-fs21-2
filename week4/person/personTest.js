@@ -1,6 +1,5 @@
-
-import { MasterController, SelectionController, MasterView, DetailView } from './person.js';
-import { Suite }                from "../test/test.js";
+import {MasterController, SelectionController, MasterView, DetailView} from './person.js';
+import {Suite} from "../test/test.js";
 
 const personSuite = Suite("person");
 
@@ -14,85 +13,146 @@ function setup() {
 
     MasterView(masterController, selectionController, masterContainer);
     DetailView(selectionController, detailContainer);
-    return {masterContainer, detailContainer, masterController, selectionController};
+
+    const masterFirstnameInput = row => masterContainer.querySelectorAll("input[type=text]")[row * 2];
+    const masterLastnameInput = row => masterContainer.querySelectorAll("input[type=text]")[row * 2 + 1];
+
+    const detailFirstnameInput = () => detailContainer.querySelector("#firstname");
+    const detailLastnameInput = () => detailContainer.querySelector("#lastname");
+
+    const updateInput = (inputElement, value) => {
+        inputElement.value = value;
+        inputElement.dispatchEvent(new Event('input'));
+    }
+
+    return {
+        masterContainer,
+        detailContainer,
+        masterController,
+        selectionController,
+        masterFirstnameInput,
+        masterLastnameInput,
+        detailFirstnameInput,
+        detailLastnameInput,
+        updateInput
+    };
 }
 
 personSuite.add("crud", assert => {
-    const {masterContainer, masterController } = setup();
+    const {masterContainer, masterController} = setup();
     const elementsPerRow = 3;
 
-    assert.is(masterContainer.children.length, 0*elementsPerRow);
+    //given
+    //when
+    //then
+    assert.is(masterContainer.children.length, 0 * elementsPerRow);
 
+    //given
+    //when
     masterController.addPerson();
-    assert.is(masterContainer.children.length, 1*elementsPerRow);
+    //then
+    assert.is(masterContainer.children.length, 1 * elementsPerRow);
 
+    //given
+    //when
     masterController.addPerson();
-    assert.is(masterContainer.children.length, 2*elementsPerRow);
+    //then
+    assert.is(masterContainer.children.length, 2 * elementsPerRow);
 
-    const firstInput = masterContainer.querySelectorAll("input[type=text]")[0];
+    //given
     const firstDeleteButton = masterContainer.querySelectorAll("button")[0];
-
+    //when
     firstDeleteButton.click();
-    assert.is(masterContainer.children.length, 1*elementsPerRow);
+    //then
+    assert.is(masterContainer.children.length, 1 * elementsPerRow);
 });
 
 personSuite.add("update selection in detailContainer", assert => {
-    const {masterContainer, detailContainer, masterController} = setup();
+    const {masterContainer, masterController, detailFirstnameInput, detailLastnameInput} = setup();
 
-    //default should be empty
-    assert.is(detailContainer.querySelector("#firstname").value, '');
-    assert.is(detailContainer.querySelector("#lastname").value, '');
+    //given
+    let expectedFirstname = '';
+    let expectedLastname = '';
+    //when
+    //then
+    assert.is(detailFirstnameInput().value, expectedFirstname);
+    assert.is(detailLastnameInput().value, expectedLastname);
 
-    //now we add a Person - this should trigger rendering and default selection
-    masterController.addPerson();
+    //given
+    expectedFirstname = 'Monika';
+    expectedLastname = 'Mustermann';
+    //when
+    masterController.addPerson(); //now we add a Person - this should trigger rendering and default selection
+    //then
+    assert.is(detailFirstnameInput().value, expectedFirstname);
+    assert.is(detailLastnameInput().value, expectedLastname);
 
-    assert.is(detailContainer.querySelector("#firstname").value, 'Monika');
-    assert.is(detailContainer.querySelector("#lastname").value, 'Mustermann');
-
-    //remove the Person we've just added again - detailContainer should be empty
+    //given
     const firstDeleteButton = masterContainer.querySelectorAll("button")[0];
-    firstDeleteButton.click();
-
-    assert.is(detailContainer.querySelector("#firstname").value, '');
-    assert.is(detailContainer.querySelector("#lastname").value, '');
-
+    expectedFirstname = '';
+    expectedLastname = '';
+    //when
+    firstDeleteButton.click(); //remove the Person we've just added again - detailContainer should be empty
+    //then
+    assert.is(detailFirstnameInput().value, expectedFirstname);
+    assert.is(detailLastnameInput().value, expectedLastname);
 });
 
 personSuite.add("update attributes when changed", assert => {
-    const {masterContainer, detailContainer, masterController} = setup();
+    const {masterController, masterFirstnameInput, detailFirstnameInput, updateInput} = setup();
 
-    //add Person, this should automatically select it in DetailView
+    //given
+    let expectedFirstname = 'Monika';
+    //when
     masterController.addPerson();
+    //then
+    assert.is(detailFirstnameInput().value, expectedFirstname);
 
-    //change value of firstname in DetailView
-    detailContainer.querySelector("#firstname").value = "Monika 1234";
-    detailContainer.querySelector("#firstname").click()
+    //given
+    let updatedFirstname = 'Petra';
+    //when
+    updateInput(masterFirstnameInput(0), updatedFirstname);
+    //then
+    assert.is(detailFirstnameInput().value, updatedFirstname);
 
-    let masterFirstname = masterContainer.querySelectorAll("input[type=text]")[0];
-    //assert.is(masterFirstname.value, 'Monika 1234'); todo
-
-    // now the other way around
-    masterFirstname.value = 'Monika'
-    //assert.is(detailContainer.querySelector("#firstname").value, masterFirstname.value);
+    //given
+    updatedFirstname = 'Max';
+    //when
+    updateInput(detailFirstnameInput(), updatedFirstname);
+    //then
+    assert.is(masterFirstnameInput(0).value, updatedFirstname);
 });
-
-
-
 
 personSuite.add("clear selection", assert => {
-    const {detailContainer, masterController, selectionController} = setup();
+    const {detailContainer, masterController, selectionController, detailFirstnameInput} = setup();
 
+    //given
+    let expectedFirstname = 'Monika';
+    //when
     masterController.addPerson();
-    assert.is(detailContainer.querySelector("#firstname").value, 'Monika');
+    //then
+    assert.is(detailFirstnameInput().value, expectedFirstname);
 
+    //given
+    expectedFirstname = '';
+    //when
     selectionController.clearSelection();
-    assert.is(detailContainer.querySelector("#firstname").value, '');
+    //then
+    assert.is(detailFirstnameInput().value, expectedFirstname);
 });
-
 
 personSuite.add("test for memory leak (difficult)", assert => {
-// todo: test for memory leak (difficult)
+    const {masterController} = setup();
 
+    masterController.onPersonAdd(person => {
+        masterController.onPersonRemove((person, removeMe) => {
+            //removeMe();
+        });
+    });
+
+    for (let i = 0; i < 100; i++) {   // without removeMe:  10000 : 2s, 20000: 8s, 100000: ???s
+        const person = masterController.addPerson();
+        masterController.removePerson(person);
+    }
 });
-
 personSuite.run();
