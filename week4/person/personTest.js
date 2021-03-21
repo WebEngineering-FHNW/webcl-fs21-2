@@ -42,18 +42,14 @@ personSuite.add('crud', assert => {
     const {masterContainer, masterController} = setup();
     const elementsPerRow = 3;
 
-    //given
-    //when
     //then
     assert.is(masterContainer.children.length, 0 * elementsPerRow);
 
-    //given
     //when
     masterController.addPerson();
     //then
     assert.is(masterContainer.children.length, 1 * elementsPerRow);
 
-    //given
     //when
     masterController.addPerson();
     //then
@@ -279,6 +275,39 @@ personSuite.add('adds new person at the end of List', assert => {
     assert.is(masterFirstnameInput(1).value, expectedFirstname);
     assert.is(masterLastnameInput(1).value, expectedLastname);
 });
+
+personSuite.add('update attribute in not selected element and trigger focus', assert => {
+    const {masterController, masterFirstnameInput, masterLastnameInput, detailFirstnameInput, detailLastnameInput, updateInput} = setup();
+
+    //given
+    let updatedFirstname = 'Petra';
+    let updatedLastname = 'Meier';
+    let expectedFirstname1 = 'Monika';
+    let expectedLastname1 = 'Mustermann';
+    let updatedFirstname2 = 'Tom';
+    let updatedFirstname3 = 'John';
+    //when
+    masterController.addPerson();
+    updateInput(detailFirstnameInput(), updatedFirstname);
+    updateInput(detailLastnameInput(),  updatedLastname);
+    masterController.addPerson();
+    //then
+    assert.is(masterFirstnameInput(0).value, updatedFirstname);
+    assert.is(masterLastnameInput(0).value, updatedLastname);
+    assert.is(masterFirstnameInput(1).value, expectedFirstname1);
+    assert.is(masterLastnameInput(1).value, expectedLastname1);
+    //when
+    updateInput(masterFirstnameInput(1), updatedFirstname2);
+    //then
+    assert.is(detailFirstnameInput().value, updatedFirstname2);
+    //when
+    updateInput(masterFirstnameInput(0), updatedFirstname3);
+    //then
+    masterFirstnameInput(0).dispatchEvent(new Event('focus'));
+    assert.is(detailFirstnameInput().value, updatedFirstname3);
+});
+
+
 
 personSuite.add('test for memory leak (difficult)', assert => {
     const {masterController} = setup();
