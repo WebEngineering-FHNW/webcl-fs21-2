@@ -1,12 +1,12 @@
 import {MasterController, SelectionController, MasterView, DetailView} from './person.js';
-import {Suite} from "../test/test.js";
+import {Suite} from '../test/test.js';
 
-const personSuite = Suite("person");
+const personSuite = Suite('person');
 
 function setup() {
-    const masterContainer = document.createElement("div");
-    const detailContainer = document.createElement("div");
-    detailContainer.innerHTML = "<div>to replace</div>";
+    const masterContainer = document.createElement('div');
+    const detailContainer = document.createElement('div');
+    detailContainer.innerHTML = '<div>to replace</div>';
 
     const masterController = MasterController();
     const selectionController = SelectionController();
@@ -14,11 +14,11 @@ function setup() {
     MasterView(masterController, selectionController, masterContainer);
     DetailView(selectionController, detailContainer);
 
-    const masterFirstnameInput = row => masterContainer.querySelectorAll("input[type=text]")[row * 2];
-    const masterLastnameInput = row => masterContainer.querySelectorAll("input[type=text]")[row * 2 + 1];
+    const masterFirstnameInput = row => masterContainer.querySelectorAll('input[type=text]')[row * 2];
+    const masterLastnameInput = row => masterContainer.querySelectorAll('input[type=text]')[row * 2 + 1];
 
-    const detailFirstnameInput = () => detailContainer.querySelector("#firstname");
-    const detailLastnameInput = () => detailContainer.querySelector("#lastname");
+    const detailFirstnameInput = () => detailContainer.querySelector('#firstname');
+    const detailLastnameInput = () => detailContainer.querySelector('#lastname');
 
     const updateInput = (inputElement, value) => {
         inputElement.value = value;
@@ -38,7 +38,7 @@ function setup() {
     };
 }
 
-personSuite.add("crud", assert => {
+personSuite.add('crud', assert => {
     const {masterContainer, masterController} = setup();
     const elementsPerRow = 3;
 
@@ -60,14 +60,14 @@ personSuite.add("crud", assert => {
     assert.is(masterContainer.children.length, 2 * elementsPerRow);
 
     //given
-    const firstDeleteButton = masterContainer.querySelectorAll("button")[0];
+    const firstDeleteButton = masterContainer.querySelectorAll('button')[0];
     //when
     firstDeleteButton.click();
     //then
     assert.is(masterContainer.children.length, 1 * elementsPerRow);
 });
 
-personSuite.add("update selection in detailContainer", assert => {
+personSuite.add('update selection in detailContainer', assert => {
     const {masterContainer, masterController, detailFirstnameInput, detailLastnameInput} = setup();
 
     //given
@@ -88,7 +88,7 @@ personSuite.add("update selection in detailContainer", assert => {
     assert.is(detailLastnameInput().value, expectedLastname);
 
     //given
-    const firstDeleteButton = masterContainer.querySelectorAll("button")[0];
+    const firstDeleteButton = masterContainer.querySelectorAll('button')[0];
     expectedFirstname = '';
     expectedLastname = '';
     //when
@@ -98,7 +98,7 @@ personSuite.add("update selection in detailContainer", assert => {
     assert.is(detailLastnameInput().value, expectedLastname);
 });
 
-personSuite.add("update attributes when changed", assert => {
+personSuite.add('update attributes when changed', assert => {
     const {masterController, masterFirstnameInput, detailFirstnameInput, updateInput} = setup();
 
     //given
@@ -123,7 +123,7 @@ personSuite.add("update attributes when changed", assert => {
     assert.is(masterFirstnameInput(0).value, updatedFirstname);
 });
 
-personSuite.add("clear selection", assert => {
+personSuite.add('clear selection', assert => {
     const {masterController, selectionController, detailFirstnameInput} = setup();
 
     //given
@@ -141,7 +141,7 @@ personSuite.add("clear selection", assert => {
     assert.is(detailFirstnameInput().value, expectedFirstname);
 });
 
-personSuite.add("no update on other attributes", assert => {
+personSuite.add('no update on other attributes', assert => {
     const {masterController, masterFirstnameInput, masterLastnameInput, detailFirstnameInput, detailLastnameInput, updateInput} = setup();
 
     //given
@@ -170,86 +170,88 @@ personSuite.add("no update on other attributes", assert => {
     assert.is(masterLastnameInput(0).value, updatedLastname);
 });
 
-personSuite.add("deletes first row", assert => {
+personSuite.add('deletes first row', assert => {
     const {masterContainer, masterController, masterFirstnameInput, detailFirstnameInput, updateInput} = setup();
 
     //given
+    let updatedFirstname1 = 'Petra';
+    let updatedFirstname2 = 'Max';
+    let updatedFirstname3 = 'Tom';
     //when
     masterController.addPerson();
-    updateInput(masterFirstnameInput(0), "Monika_1");
+    updateInput(masterFirstnameInput(0), updatedFirstname1);
     masterController.addPerson();
-    updateInput(masterFirstnameInput(1), "Monika_2");
+    updateInput(masterFirstnameInput(1), updatedFirstname2);
     masterController.addPerson();
-    updateInput(masterFirstnameInput(2), "Monika_3");
+    updateInput(masterFirstnameInput(2), updatedFirstname3);
     //then
-    assert.is(masterFirstnameInput(0).value, "Monika_1");
-    assert.is(masterFirstnameInput(1).value, "Monika_2");
-    assert.is(masterFirstnameInput(2).value, "Monika_3");
+    assert.is(masterFirstnameInput(0).value, updatedFirstname1);
+    assert.is(masterFirstnameInput(1).value, updatedFirstname2);
+    assert.is(masterFirstnameInput(2).value, updatedFirstname3);
 
     //given
-    const firstDeleteButton = masterContainer.querySelectorAll("button")[0];
+    const firstDeleteButton = masterContainer.querySelectorAll('button')[0];
     //when
     firstDeleteButton.click(); //remove the Person we've just added again - detailContainer should be empty
     //then
-    assert.is(masterFirstnameInput(0).value, "Monika_2");
-    assert.is(masterFirstnameInput(1).value, "Monika_3");
-    assert.is(detailFirstnameInput().value, "");
+    assert.is(masterFirstnameInput(0).value, updatedFirstname2);
+    assert.is(masterFirstnameInput(1).value, updatedFirstname3);
+    assert.is(detailFirstnameInput().value, '');
 });
 
-personSuite.add("deletes last row", assert => {
-    const {detailContainer, masterContainer, masterController, masterFirstnameInput, masterLastnameInput, selectionController, detailFirstnameInput, detailLastnameInput, updateInput} = setup();
-
-    //given
-    //when
-    masterController.addPerson();
-    updateInput(masterFirstnameInput(0), "Monika_1");
-    masterController.addPerson();
-    updateInput(masterFirstnameInput(1), "Monika_2");
-    masterController.addPerson();
-    updateInput(masterFirstnameInput(2), "Monika_3");
-    //then
-    assert.is(masterFirstnameInput(0).value, "Monika_1");
-    assert.is(masterFirstnameInput(1).value, "Monika_2");
-    assert.is(masterFirstnameInput(2).value, "Monika_3");
-
-    //given
-    const lastDeleteButton = masterContainer.querySelectorAll("button")[2];
-    //when
-    lastDeleteButton.click(); //remove the Person we've just added again - detailContainer should be empty
-    //then
-    assert.is(masterFirstnameInput(0).value, "Monika_1");
-    assert.is(masterFirstnameInput(1).value, "Monika_2");
-    assert.is(detailFirstnameInput().value, "");
-});
-
-personSuite.add("deletes middle row", assert => {
+personSuite.add('deletes last row', assert => {
     const {masterContainer, masterController, masterFirstnameInput, detailFirstnameInput, updateInput} = setup();
 
     //given
+    let updatedFirstname1 = 'Petra';
+    let updatedFirstname2 = 'Max';
+    let updatedFirstname3 = 'Tom';
     //when
     masterController.addPerson();
-    updateInput(masterFirstnameInput(0), "Monika_1");
+    updateInput(masterFirstnameInput(0), updatedFirstname1);
     masterController.addPerson();
-    updateInput(masterFirstnameInput(1), "Monika_2");
+    updateInput(masterFirstnameInput(1), updatedFirstname2);
     masterController.addPerson();
-    updateInput(masterFirstnameInput(2), "Monika_3");
+    updateInput(masterFirstnameInput(2), updatedFirstname3);
     //then
-    assert.is(masterFirstnameInput(0).value, "Monika_1");
-    assert.is(masterFirstnameInput(1).value, "Monika_2");
-    assert.is(masterFirstnameInput(2).value, "Monika_3");
+    assert.is(masterFirstnameInput(0).value, updatedFirstname1);
+    assert.is(masterFirstnameInput(1).value, updatedFirstname2);
+    assert.is(masterFirstnameInput(2).value, updatedFirstname3);
 
     //given
-    const lastDeleteButton = masterContainer.querySelectorAll("button")[1];
+    const lastDeleteButton = masterContainer.querySelectorAll('button')[2];
     //when
     lastDeleteButton.click(); //remove the Person we've just added again - detailContainer should be empty
     //then
-    assert.is(masterFirstnameInput(0).value, "Monika_1");
-    assert.is(masterFirstnameInput(1).value, "Monika_3");
-    assert.is(detailFirstnameInput().value, "");
+    assert.is(masterFirstnameInput(0).value, updatedFirstname1);
+    assert.is(masterFirstnameInput(1).value, updatedFirstname2);
+    assert.is(detailFirstnameInput().value, '');
 });
 
-personSuite.add("adds new person at the end of List", assert => {
-    const {detailContainer, masterController, masterFirstnameInput, masterLastnameInput, selectionController, detailFirstnameInput, detailLastnameInput, updateInput} = setup();
+personSuite.add('deletes middle row', assert => {
+    const {masterContainer, masterController, masterFirstnameInput, detailFirstnameInput, updateInput} = setup();
+
+    //given
+    let updatedFirstname1 = 'Petra';
+    let updatedFirstname2 = 'Max';
+    let updatedFirstname3 = 'Tom';
+    //when
+    masterController.addPerson();
+    updateInput(masterFirstnameInput(0), updatedFirstname1);
+    masterController.addPerson();
+    updateInput(masterFirstnameInput(1), updatedFirstname2);
+    masterController.addPerson();
+    updateInput(masterFirstnameInput(2), updatedFirstname3);
+    const lastDeleteButton = masterContainer.querySelectorAll('button')[1];
+    lastDeleteButton.click(); //remove the Person we've just added again - detailContainer should be empty
+    //then
+    assert.is(masterFirstnameInput(0).value, updatedFirstname1);
+    assert.is(masterFirstnameInput(1).value, updatedFirstname3);
+    assert.is(detailFirstnameInput().value, '');
+});
+
+personSuite.add('adds new person at the end of List', assert => {
+    const {masterController, masterFirstnameInput, masterLastnameInput, detailFirstnameInput, detailLastnameInput, updateInput} = setup();
 
     //given
     let expectedFirstname = 'Monika';
@@ -269,7 +271,6 @@ personSuite.add("adds new person at the end of List", assert => {
     //then
     assert.is(masterFirstnameInput(0).value, updatedFirstname);
     assert.is(masterLastnameInput(0).value, updatedLastname);
-
     //when
     masterController.addPerson();
     //then
@@ -279,7 +280,7 @@ personSuite.add("adds new person at the end of List", assert => {
     assert.is(masterLastnameInput(1).value, expectedLastname);
 });
 
-personSuite.add("test for memory leak (difficult)", assert => {
+personSuite.add('test for memory leak (difficult)', assert => {
     const {masterController} = setup();
 
     masterController.onPersonAdd(person => {
