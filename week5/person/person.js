@@ -1,8 +1,10 @@
 import { ObservableList, Observable }                       from "../observable/observable.js";
-import { Attribute, LABEL }                                 from "../presentationModel/presentationModel.js";
-import { personListItemProjector, personFormProjector }     from "./personProjector.js";
+import { Attribute, LABEL }                       from "../presentationModel/presentationModel.js";
+import { personListItemProjector, formProjector } from "./personProjector.js";
 
 export { MasterController, MasterView, SelectionController, DetailView }
+
+const ALL_PERSON_TEXT_ATTRIBUTE_NAMES = ["firstname", "lastname", "language"];
 
 const Person = () => {                               // facade
     const firstnameAttr = Attribute("Monika");
@@ -11,12 +13,16 @@ const Person = () => {                               // facade
     const lastnameAttr  = Attribute("Mustermann");
     lastnameAttr.getObs(LABEL).setValue("Last Name");
 
+    const langAttr  = Attribute("JavaScript");
+    langAttr.getObs(LABEL).setValue("Favorite Language");
+
     // lastnameAttr.setConverter( input => input.toUpperCase() );
     // lastnameAttr.setValidator( input => input.length >= 3   );
 
     return {
         firstname:          firstnameAttr,
         lastname:           lastnameAttr,
+        language:           langAttr,
     }
 };
 
@@ -46,8 +52,9 @@ const MasterView = (masterController, selectionController, rootElement) => {
 
 const NoPerson = (() => { // one time creation, singleton
     const johnDoe = Person();
-    johnDoe.firstname.setConvertedValue("");
-    johnDoe.lastname.setConvertedValue("");
+    ALL_PERSON_TEXT_ATTRIBUTE_NAMES.forEach( name => {
+        johnDoe[name].setConvertedValue("");
+    });
     return johnDoe;
 })();
 
@@ -67,7 +74,7 @@ const SelectionController = () => {
 const DetailView = (selectionController, rootElement) => {
 
     const render = person =>
-        personFormProjector(selectionController, rootElement, person);
+        formProjector(selectionController, rootElement, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
 
     selectionController.onPersonSelected(render);
 };

@@ -8,7 +8,7 @@ function setup() {
     const detailContainer = document.createElement('div');
     detailContainer.innerHTML = '<div>to replace</div>';
 
-    const masterController = MasterController();
+    const masterController     = MasterController();
     const selectionController = SelectionController();
 
     MasterView(masterController, selectionController, masterContainer);
