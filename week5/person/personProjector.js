@@ -18,9 +18,7 @@ const bindTextInput = (textAttr, inputElement) => {
         ? inputElement.removeAttribute("readonly")
         : inputElement.setAttribute("readonly", true));
 
-    // the label property should be shown as a pop-over on the text element.
-    textAttr.getObs(LABEL,"").onChange(label => inputElement.setAttribute("title", label));
-
+    textAttr.getObs(LABEL, '').onChange(label => inputElement.setAttribute("title", label));
 };
 
 const personTextProjector = textAttr => {
@@ -44,7 +42,6 @@ const personListItemProjector = (masterController, selectionController, rootElem
     const firstnameInputElement = personTextProjector(person.firstname);
     const lastnameInputElement  = personTextProjector(person.lastname);
 
-    // when a line in the master view is clicked, we have to set the selection
     firstnameInputElement.onfocus = _ => selectionController.setSelectedPerson(person);
     lastnameInputElement.onfocus  = _ => selectionController.setSelectedPerson(person);
 
@@ -82,13 +79,14 @@ const personFormProjector = (detailController, rootElement, person) => {
         </DIV>
     </FORM>`;
 
-    // todo: bind text values
-    bindTextInput(person.firstname, divElement.querySelector("#firstname"));
-    bindTextInput(person.lastname,  divElement.querySelector("#lastname"));
+    bindTextInput(person.firstname, divElement.querySelector('#firstname'));
+    bindTextInput(person.lastname,  divElement.querySelector('#lastname'));
 
-    // todo: bind label values
-    person.firstname.getObs(LABEL).onChange(label => divElement.querySelector("label[for=firstname]").textContent = label);
-    person.lastname .getObs(LABEL).onChange(label => divElement.querySelector("label[for=lastname]") .textContent = label);
+    // beware of memory leak in person.firstname observables
+    person.firstname.getObs(LABEL, '')
+        .onChange(label => divElement.querySelector('[for=firstname]').textContent = label);
+    person.lastname.getObs(LABEL, '')
+        .onChange(label => divElement.querySelector('[for=lastname]').textContent = label);
 
-    rootElement.firstChild.replaceWith(divElement); // react - style ;-)
+    rootElement.firstChild.replaceWith(divElement);
 };
