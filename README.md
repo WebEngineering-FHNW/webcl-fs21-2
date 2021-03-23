@@ -73,3 +73,27 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
 
 ### Vergebene Aufgaben
 - Tests für Master-Detail vervollständigen (O.Studer & R.von Arx)
+
+## Woche 5 - Projector Pattern
+**Datum/Uhrzeit:** 23.03.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges [Goodie: Blurred gradient border](./week5/BackBlur.html) ([z-index](https://developer.mozilla.org/de/docs/Web/CSS/z-index), [linear-gradient()](https://developer.mozilla.org/de/docs/Web/CSS/linear-gradient()), [blur()](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur()), [position](https://developer.mozilla.org/de/docs/Web/CSS/position))
+  - Timestamps im Recording (1. Lektion): [4:30] - [31:30]
+- Diskussion über den Modus der Punktevergabe
+  - Begründung des derzeitigen Modus
+  - Einführen von CSS-Goodie Aufgaben, welche Studenten bearbeiten (analog zu den anderen Vorträgen)
+  - Timestamps im Recording (1. Lektion: [31:30] - [56:04])
+- Präsentation der Aufgaben auf diese Woche
+    - Tests für Master-Detail (O.Studer & R.von Arx)
+        - Code ist in diesem Repo ([Siehe hier](./week5/person/personTest.js))
+        - Timestamps im Recording (2. Lektion): Vorstellung [1:30] - [9:30], Fragen [9:30] - [19:00]
+- Projector Pattern
+  - Theorie (Problemstellung, Lösung, Nutzen) (Timestamps 3. Lektion: [23:00] - [46:00])
+  - Livecoding innerhalb des Projekts (Timestamps 3. Lektion: [2:00] - [30:00])
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+
+### Vergebene Aufgaben
+- CSS-Goodie: Specificity (L.Kern)
+- HTML-Table Projector (J.Hardorn & J.Kennedy)
