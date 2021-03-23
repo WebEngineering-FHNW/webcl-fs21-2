@@ -58,7 +58,7 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
 **Datum/Uhrzeit:** 16.03.2021 - 12:15 bis 15:00
 
 ### Themen
-- Heutiges [Goodie: CSS Triangle](./week4/Goodie-4-CSSCollapse.html) ([Custom-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), [display](https://developer.mozilla.org/de/docs/Web/CSS/display)/[visibility](https://developer.mozilla.org/de/docs/Web/CSS/visibility), [Sibling selector](https://developer.mozilla.org/de/docs/Web/CSS/Adjacent_sibling_combinator))
+- Heutiges [Goodie: CSS Collapsible](./week4/Goodie-4-CSSCollapse.html) ([Custom-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*), [display](https://developer.mozilla.org/de/docs/Web/CSS/display)/[visibility](https://developer.mozilla.org/de/docs/Web/CSS/visibility), [Sibling selector](https://developer.mozilla.org/de/docs/Web/CSS/Adjacent_sibling_combinator))
   - Timestamps im Recording(1. Lektion): [2:30] - [43:00]
 - Präsentation der Aufgaben auf diese Woche
     - Kurzeinführung in JSDoc (L.Jacobs & R.Koch)
