@@ -1,6 +1,6 @@
-import { ObservableList, Observable }             from "../observable/observable.js";
-import { Attribute, LABEL }                       from "../presentationModel/presentationModel.js";
-import { personListItemProjector, formProjector } from "./personProjector.js";
+import { ObservableList, Observable }                                       from "../observable/observable.js";
+import { Attribute, LABEL }                                                 from "../presentationModel/presentationModel.js";
+import { personListItemProjector, personTableItemProjector, formProjector } from "./personProjector.js";
 
 export { MasterController, MasterView, SelectionController, DetailView }
 
@@ -43,8 +43,12 @@ const MasterController = () => {
 
 const MasterView = (masterController, selectionController, rootElement) => {
 
+    const tableRoot = document.createElement('table');
+    rootElement.appendChild(tableRoot);
+
     const render = person =>
-        personListItemProjector(masterController, selectionController, rootElement, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
+        // personListItemProjector(masterController, selectionController, rootElement, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
+        personTableItemProjector(masterController, selectionController, tableRoot, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
 
     // binding
     masterController.onPersonAdd(render);
@@ -78,3 +82,5 @@ const DetailView = (selectionController, rootElement) => {
 
     selectionController.onPersonSelected(render);
 };
+
+
