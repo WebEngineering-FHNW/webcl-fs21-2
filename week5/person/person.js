@@ -1,4 +1,4 @@
-import { ObservableList, Observable }                       from "../observable/observable.js";
+import { ObservableList, Observable }             from "../observable/observable.js";
 import { Attribute, LABEL }                       from "../presentationModel/presentationModel.js";
 import { personListItemProjector, formProjector } from "./personProjector.js";
 
@@ -44,7 +44,7 @@ const MasterController = () => {
 const MasterView = (masterController, selectionController, rootElement) => {
 
     const render = person =>
-        personListItemProjector(masterController, selectionController, rootElement, person);
+        personListItemProjector(masterController, selectionController, rootElement, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
 
     // binding
     masterController.onPersonAdd(render);

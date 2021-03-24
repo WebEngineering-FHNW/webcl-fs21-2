@@ -32,38 +32,44 @@ const personTextProjector = textAttr => {
     return inputElement;
 };
 
-const personListItemProjector = (masterController, selectionController, rootElement, person) => {
+const personListItemProjector = (masterController, selectionController, rootElement, model, attributeNames) => {
 
     const deleteButton      = document.createElement("Button");
     deleteButton.setAttribute("class","delete");
     deleteButton.innerHTML  = "&times;";
-    deleteButton.onclick    = _ => masterController.removePerson(person);
+    // todo: refactor "person"
+    deleteButton.onclick    = _ => masterController.removePerson(model);
 
-    const firstnameInputElement = personTextProjector(person.firstname);
-    const lastnameInputElement  = personTextProjector(person.lastname);
+    const inputElementArray = [];
 
-    firstnameInputElement.onfocus = _ => selectionController.setSelectedPerson(person);
-    lastnameInputElement.onfocus  = _ => selectionController.setSelectedPerson(person);
+    attributeNames.forEach( name => {
+        const inputElement = personTextProjector(model[name]);
+        inputElement.onfocus  = _ => selectionController.setSelectedPerson(model);
+        inputElementArray.push( inputElement );
+    });
 
+    // todo: refactor "person"
     selectionController.onPersonSelected(
-        selected => selected === person
+        selected => selected === model
           ? deleteButton.classList.add("selected")
           : deleteButton.classList.remove("selected")
     );
 
     masterController.onPersonRemove( (removedPerson, removeMe) => {
-        if (removedPerson !== person) return;
+        if (removedPerson !== model) return;
         rootElement.removeChild(deleteButton);
-        rootElement.removeChild(firstnameInputElement);
-        rootElement.removeChild(lastnameInputElement);
+        inputElementArray.forEach( inputElement => {
+            rootElement.removeChild(inputElement);
+        });
         selectionController.clearSelection();
         removeMe();
     } );
 
     rootElement.appendChild(deleteButton);
-    rootElement.appendChild(firstnameInputElement);
-    rootElement.appendChild(lastnameInputElement);
-    selectionController.setSelectedPerson(person);
+    inputElementArray.forEach( inputElement => {
+        rootElement.appendChild(inputElement);
+    });
+    selectionController.setSelectedPerson(model);
 };
 
 const formProjector = (detailController, rootElement, model, attributeNames) => {
@@ -74,6 +80,7 @@ const formProjector = (detailController, rootElement, model, attributeNames) => 
         <DIV class="detail-form"> 
         </DIV>
     </FORM>`;
+
     const detailForm = divElement.querySelector(".detail-form");
     attributeNames.forEach( name => {
         detailForm.innerHTML += `        
