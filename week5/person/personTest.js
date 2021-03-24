@@ -4,6 +4,8 @@ import {Suite} from '../test/test.js';
 const personSuite = Suite('person');
 
 function setup() {
+    const elementsPerRow = 4;
+
     const masterContainer = document.createElement('div');
     const detailContainer = document.createElement('div');
     detailContainer.innerHTML = '<div>to replace</div>';
@@ -14,8 +16,8 @@ function setup() {
     MasterView(masterController, selectionController, masterContainer);
     DetailView(selectionController, detailContainer);
 
-    const masterFirstnameInput = row => masterContainer.querySelectorAll('input[type=text]')[row * 2];
-    const masterLastnameInput = row => masterContainer.querySelectorAll('input[type=text]')[row * 2 + 1];
+    const masterFirstnameInput = row => masterContainer.querySelectorAll('input[type=text]')[row * (elementsPerRow - 1)];
+    const masterLastnameInput = row => masterContainer.querySelectorAll('input[type=text]')[row * (elementsPerRow - 1) + 1];
 
     const detailFirstnameInput = () => detailContainer.querySelector('#firstname');
     const detailLastnameInput = () => detailContainer.querySelector('#lastname');
@@ -40,7 +42,7 @@ function setup() {
 
 personSuite.add('crud', assert => {
     const {masterContainer, masterController} = setup();
-    const elementsPerRow = 3;
+    const elementsPerRow = 4;
 
     //then
     assert.is(masterContainer.children.length, 0 * elementsPerRow);
