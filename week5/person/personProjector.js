@@ -1,6 +1,6 @@
 import {VALUE, VALID, EDITABLE, LABEL} from "../presentationModel/presentationModel.js";
 
-export { personListItemProjector, personFormProjector }
+export { personListItemProjector, formProjector }
 
 const bindTextInput = (textAttr, inputElement) => {
     inputElement.oninput = _ => textAttr.setConvertedValue(inputElement.value);
@@ -66,27 +66,27 @@ const personListItemProjector = (masterController, selectionController, rootElem
     selectionController.setSelectedPerson(person);
 };
 
-const personFormProjector = (detailController, rootElement, person) => {
+const formProjector = (detailController, rootElement, model, attributeNames) => {
 
     const divElement = document.createElement("DIV");
     divElement.innerHTML = `
     <FORM>
-        <DIV class="detail-form">
-            <LABEL for="firstname"></LABEL>
-            <INPUT TYPE="text" size="20" id="firstname">   
-            <LABEL for="lastname"></LABEL>
-            <INPUT TYPE="text" size="20" id="lastname">   
+        <DIV class="detail-form"> 
         </DIV>
     </FORM>`;
+    const detailForm = divElement.querySelector(".detail-form");
+    attributeNames.forEach( name => {
+        detailForm.innerHTML += `        
+            <LABEL for="${name}"></LABEL>
+            <INPUT TYPE="text" size="20" id="${name}"> 
+        `;
+    });
 
-    bindTextInput(person.firstname, divElement.querySelector('#firstname'));
-    bindTextInput(person.lastname,  divElement.querySelector('#lastname'));
-
-    // beware of memory leak in person.firstname observables
-    person.firstname.getObs(LABEL, '')
-        .onChange(label => divElement.querySelector('[for=firstname]').textContent = label);
-    person.lastname.getObs(LABEL, '')
-        .onChange(label => divElement.querySelector('[for=lastname]').textContent = label);
+    attributeNames.forEach( name => {
+        bindTextInput(model[name], divElement.querySelector('#'+name));
+        model[name].getObs(LABEL, '')
+            .onChange(label => divElement.querySelector('[for='+ name+']').textContent = label);
+    });
 
     rootElement.firstChild.replaceWith(divElement);
 };
