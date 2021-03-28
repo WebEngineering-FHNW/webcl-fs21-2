@@ -19,6 +19,7 @@ input[type=text] {
     font-size:      1.1em;
     color:          darkblue;
     border-width:   0 0 1px 0;
+    background:     none;
 }
 input[type=text]:focus {
     border-color:   orange;
@@ -49,6 +50,14 @@ input[type=text]:focus {
 input.invalid {
     color: red;
 }
-.selected {
+button.selected {
     box-shadow: 0 0 0.2em gold;
+}
+
+table tr:hover {
+    background: #eee;
+}
+
+table tr.selected {
+    background: lavender;
 }

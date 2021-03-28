@@ -54,8 +54,8 @@ const personTableItemProjector = (masterController, selectionController, rootEle
     // todo: refactor "person"
     selectionController.onPersonSelected(
         selected => selected === model
-            ? deleteButton.classList.add("selected")
-            : deleteButton.classList.remove("selected")
+            ? tableRow.classList.add("selected")
+            : tableRow.classList.remove("selected")
     );
 
     masterController.onPersonRemove( (removedPerson, removeMe) => {
