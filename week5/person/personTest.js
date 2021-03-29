@@ -40,31 +40,27 @@ function setup() {
     };
 }
 
-// todo: update test suite to match HTML table setup
-// personSuite.add('crud', assert => {
-//     const {masterContainer, masterController} = setup();
-//     const elementsPerRow = 4;
-//
-//     //then
-//     assert.is(masterContainer.children.length, 0 * elementsPerRow);
-//
-//     //when
-//     masterController.addModel();
-//     //then
-//     assert.is(masterContainer.children.length, 1 * elementsPerRow);
-//
-//     //when
-//     masterController.addModel();
-//     //then
-//     assert.is(masterContainer.children.length, 2 * elementsPerRow);
-//
-//     //given
-//     const firstDeleteButton = masterContainer.querySelectorAll('button')[0];
-//     //when
-//     firstDeleteButton.click();
-//     //then
-//     assert.is(masterContainer.children.length, 1 * elementsPerRow);
-// });
+personSuite.add('crud', assert => {
+    const {masterContainer, masterController} = setup();
+    const elementsPerRow = 4;
+
+    //then
+    assert.is(masterContainer.querySelectorAll('table td').length, 0 * elementsPerRow);
+    //when
+    masterController.addModel();
+    //then
+    assert.is(masterContainer.querySelectorAll('table td').length, 1 * elementsPerRow);
+    //when
+    masterController.addModel();
+    //then
+    assert.is(masterContainer.querySelectorAll('table td').length, 2 * elementsPerRow);
+    //given
+    const firstDeleteButton = masterContainer.querySelectorAll('button')[0];
+    //when
+    firstDeleteButton.click();
+    //then
+    assert.is(masterContainer.querySelectorAll('table td').length, 1 * elementsPerRow);
+});
 
 personSuite.add('update selection in detailContainer', assert => {
     const {masterContainer, masterController, detailFirstnameInput, detailLastnameInput} = setup();
