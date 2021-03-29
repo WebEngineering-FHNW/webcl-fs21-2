@@ -1,6 +1,6 @@
 import { ObservableList, Observable }                                       from "../observable/observable.js";
 import { Attribute, LABEL }                                                 from "../presentationModel/presentationModel.js";
-import { personListItemProjector, personTableItemProjector, formProjector } from "./personProjector.js";
+import { listItemProjector, tableRowProjector, formProjector }        from "./personProjector.js";
 
 export { MasterController, MasterView, SelectionController, DetailView }
 
@@ -31,10 +31,10 @@ const MasterController = () => {
     const personListModel = ObservableList([]); // observable array of Todos, this state is private
 
     return {
-        addPerson:            () => personListModel.add(Person()),
-        removePerson:         personListModel.del,
-        onPersonAdd:          personListModel.onAdd,
-        onPersonRemove:       personListModel.onDel,
+        addModel:            () => personListModel.add(Person()),
+        removeModel:         personListModel.del,
+        onModelAdd:          personListModel.onAdd,
+        onModelRemove:       personListModel.onDel,
     }
 };
 
@@ -47,11 +47,10 @@ const MasterView = (masterController, selectionController, rootElement) => {
     rootElement.appendChild(tableRoot);
 
     const render = person =>
-        // personListItemProjector(masterController, selectionController, rootElement, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
-        personTableItemProjector(masterController, selectionController, tableRoot, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
+        tableRowProjector(masterController, selectionController, tableRoot, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
 
     // binding
-    masterController.onPersonAdd(render);
+    masterController.onModelAdd(render);
 };
 
 const NoPerson = (() => { // one time creation, singleton
@@ -64,13 +63,13 @@ const NoPerson = (() => { // one time creation, singleton
 
 const SelectionController = () => {
 
-    const selectedPersonObs = Observable(NoPerson);
+    const selectedModelObs = Observable(NoPerson);
 
     return {
-        setSelectedPerson : selectedPersonObs.setValue,
-        getSelectedPerson : selectedPersonObs.getValue,
-        onPersonSelected:   selectedPersonObs.onChange,
-        clearSelection:     () => selectedPersonObs.setValue(NoPerson),
+        setSelectedModel :        selectedModelObs.setValue,
+        getSelectedModel :        selectedModelObs.getValue,
+        onModelSelected:          selectedModelObs.onChange,
+        clearSelection:     () => selectedModelObs.setValue(NoPerson),
     }
 };
 
@@ -80,7 +79,7 @@ const DetailView = (selectionController, rootElement) => {
     const render = person =>
         formProjector(selectionController, rootElement, person, ALL_PERSON_TEXT_ATTRIBUTE_NAMES);
 
-    selectionController.onPersonSelected(render);
+    selectionController.onModelSelected(render);
 };
 
 

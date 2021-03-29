@@ -1,6 +1,6 @@
 import {VALUE, VALID, EDITABLE, LABEL} from "../presentationModel/presentationModel.js";
 
-export { personListItemProjector, personTableItemProjector, formProjector }
+export { listItemProjector, tableRowProjector, formProjector }
 
 const bindTextInput = (textAttr, inputElement) => {
     inputElement.oninput = _ => textAttr.setConvertedValue(inputElement.value);
@@ -21,7 +21,7 @@ const bindTextInput = (textAttr, inputElement) => {
     textAttr.getObs(LABEL, '').onChange(label => inputElement.setAttribute("title", label));
 };
 
-const personTextProjector = textAttr => {
+const textInputProjector = textAttr => {
 
     const inputElement = document.createElement("INPUT");
     inputElement.type = "text";
@@ -32,83 +32,80 @@ const personTextProjector = textAttr => {
     return inputElement;
 };
 
-const personTableCellProjector = element => {
+const tableCellProjector = element => {
     const tableCell = document.createElement("td");
     tableCell.appendChild(element);
     return tableCell;
 };
 
-// todo: rename to personTableRowProjector
-const personTableItemProjector = (masterController, selectionController, rootElement, model, attributeNames) => {
+const tableRowProjector = (masterController, selectionController, rootElement, model, attributeNames) => {
 
     // create table row which is the parent of all attributes
     const tableRow  = document.createElement("tr");
-    
+
+    // create delete button
     const deleteButton      = document.createElement("Button");
     deleteButton.setAttribute("class","delete");
     deleteButton.innerHTML  = "&times;";
-    // todo: refactor "person"
-    deleteButton.onclick    = _ => masterController.removePerson(model);
-    tableRow.appendChild(personTableCellProjector(deleteButton));
+    deleteButton.onclick    = _ => masterController.removeModel(model);
 
-    const inputElementArray = [];
+    // create all attributes
+    const inputElements = [];
     attributeNames.forEach( name => {
-        const inputElement = personTextProjector(model[name]);
-        inputElement.onfocus  = _ => selectionController.setSelectedPerson(model);
-        inputElementArray.push( inputElement );
+        const inputElement = textInputProjector(model[name]);
+        inputElement.onfocus  = _ => selectionController.setSelectedModel(model);
+        inputElements.push( inputElement );
     });
 
-    // todo: refactor "person"
-    selectionController.onPersonSelected(
+    selectionController.onModelSelected(
         selected => selected === model
             ? tableRow.classList.add("selected")
             : tableRow.classList.remove("selected")
     );
 
-    masterController.onPersonRemove( (removedPerson, removeMe) => {
-        if (removedPerson !== model) return;
+    masterController.onModelRemove( (removedModel, removeMe) => {
+        if (removedModel !== model) return;
         rootElement.removeChild(tableRow);
         selectionController.clearSelection();
         removeMe();
     } );
 
-    // add table cells for each attribute
-    inputElementArray.forEach( inputElement => {
-        tableRow.appendChild(personTableCellProjector(inputElement));
+    // add table cells to table row
+    tableRow.appendChild(tableCellProjector(deleteButton));
+    inputElements.forEach( inputElement => {
+        tableRow.appendChild(tableCellProjector(inputElement));
     });
 
     // add table row to the table body and put the whole stuff in the root element
     rootElement.appendChild(tableRow);
 
     // todo: selection handling (row)
-    selectionController.setSelectedPerson(model);
+    selectionController.setSelectedModel(model);
 };
 
-const personListItemProjector = (masterController, selectionController, rootElement, model, attributeNames) => {
+const listItemProjector = (masterController, selectionController, rootElement, model, attributeNames) => {
 
     const deleteButton      = document.createElement("Button");
     deleteButton.setAttribute("class","delete");
     deleteButton.innerHTML  = "&times;";
-    // todo: refactor "person"
-    deleteButton.onclick    = _ => masterController.removePerson(model);
+    deleteButton.onclick    = _ => masterController.removeModel(model);
 
     const inputElementArray = [];
 
     attributeNames.forEach( name => {
-        const inputElement = personTextProjector(model[name]);
-        inputElement.onfocus  = _ => selectionController.setSelectedPerson(model);
+        const inputElement = textInputProjector(model[name]);
+        inputElement.onfocus  = _ => selectionController.setSelectedModel(model);
         inputElementArray.push( inputElement );
     });
 
-    // todo: refactor "person"
-    selectionController.onPersonSelected(
+    selectionController.onModelSelected(
         selected => selected === model
           ? deleteButton.classList.add("selected")
           : deleteButton.classList.remove("selected")
     );
 
-    masterController.onPersonRemove( (removedPerson, removeMe) => {
-        if (removedPerson !== model) return;
+    masterController.onModelRemove( (removedModel, removeMe) => {
+        if (removedModel !== model) return;
         rootElement.removeChild(deleteButton);
         inputElementArray.forEach( inputElement => {
             rootElement.removeChild(inputElement);
@@ -121,7 +118,7 @@ const personListItemProjector = (masterController, selectionController, rootElem
     inputElementArray.forEach( inputElement => {
         rootElement.appendChild(inputElement);
     });
-    selectionController.setSelectedPerson(model);
+    selectionController.setSelectedModel(model);
 };
 
 const formProjector = (detailController, rootElement, model, attributeNames) => {
