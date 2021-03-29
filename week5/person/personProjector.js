@@ -79,7 +79,6 @@ const tableRowProjector = (masterController, selectionController, rootElement, m
     // add table row to the table body and put the whole stuff in the root element
     rootElement.appendChild(tableRow);
 
-    // todo: selection handling (row)
     selectionController.setSelectedModel(model);
 };
 
