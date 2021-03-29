@@ -32,6 +32,13 @@ const personTextProjector = textAttr => {
     return inputElement;
 };
 
+const personTableCellProjector = element => {
+    const tableCell = document.createElement("td");
+    tableCell.appendChild(element);
+    return tableCell;
+};
+
+// todo: rename to personTableRowProjector
 const personTableItemProjector = (masterController, selectionController, rootElement, model, attributeNames) => {
 
     // create table row which is the parent of all attributes
@@ -42,9 +49,9 @@ const personTableItemProjector = (masterController, selectionController, rootEle
     deleteButton.innerHTML  = "&times;";
     // todo: refactor "person"
     deleteButton.onclick    = _ => masterController.removePerson(model);
+    tableRow.appendChild(personTableCellProjector(deleteButton));
 
     const inputElementArray = [];
-
     attributeNames.forEach( name => {
         const inputElement = personTextProjector(model[name]);
         inputElement.onfocus  = _ => selectionController.setSelectedPerson(model);
@@ -65,16 +72,9 @@ const personTableItemProjector = (masterController, selectionController, rootEle
         removeMe();
     } );
 
-    // create table cell for delete button
-    const tableCell = document.createElement("td");
-    tableCell.appendChild(deleteButton);
-    tableRow.appendChild(tableCell);
-
     // add table cells for each attribute
     inputElementArray.forEach( inputElement => {
-        const tableCell = document.createElement("td");
-        tableCell.appendChild(inputElement);
-        tableRow.appendChild(tableCell);
+        tableRow.appendChild(personTableCellProjector(inputElement));
     });
 
     // add table row to the table body and put the whole stuff in the root element
