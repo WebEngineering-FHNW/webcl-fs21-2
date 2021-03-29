@@ -11,4 +11,4 @@ DetailView(selectionController, document.getElementById('detailContainer'));
 
 // binding of the main view
 
-document.getElementById('plus').onclick    = _ => masterController.addPerson();
+document.getElementById('plus').onclick    = _ => masterController.addModel();
