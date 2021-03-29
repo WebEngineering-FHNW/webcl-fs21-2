@@ -3,7 +3,7 @@ body {
     font-family:    "Helvetica Neue", sans-serif;
 }
 .card {
-    max-width:  40em;
+    max-width:  48em;
     margin:     1em auto 4em auto;
     padding:    2em;
     box-shadow: 0 4px  8px 0 rgba(0, 0, 0, 0.2),
@@ -13,7 +13,7 @@ h1 {
     text-align: center;
 }
 .holder {
-    margin: 0 3em 0 3em;
+    /*margin: 0 3em 0 3em;*/
 }
 input[type=text] {
     font-size:      1.1em;
@@ -26,9 +26,9 @@ input[type=text]:focus {
     outline:        transparent none 0;
 }
 #masterContainer {
-    display:        grid;
-    grid-column-gap: 0.5em;
-    grid-template-columns: 1.7em auto auto;
+    /*display:        grid;*/
+    /*grid-column-gap: 0.5em;*/
+    /*grid-template-columns: 1.7em auto auto;*/
     margin-bottom:  0.5em ;
 }
 .detail-form {
