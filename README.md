@@ -3,10 +3,32 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
-# webcl-fs21-2
-**Klasse**: 6iCbb
+## Woche 6 - Projector Pattern mit spezifischem CSS (CSS++)
+**Datum/Uhrzeit:** 30.03.2021 - 12:15 bis 15:00
 
-Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
+### Themen
+- Heutiges Goodie: CSS Specificity (L.Kern) - Timestamps Präsentation (1. Lektion): [19:30] - [29:00]
+  - Die Präsentation sowie den dazugehörigen Code findet sich in den MS Teams-Files unter Woche 6
+  - Behandelte Themen: [The Cascade](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#the_cascade), [Specificity](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#specificity), [Inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#inheritance), [Specificity Calculator](https://specificity.keegan.st/) & Live-Coding
+  - Anmerkungen von D. König sowie Beantwortung von Fragen: 1. Lektion: [29:00] - [34:00] & 2. Lektion: [00:00] - [09:00]
+- Präsentation über die [Table Projectoren](https://github.com/WebEngineering-FHNW/webcl-fs21-2/pull/9/files) (J.Hadorn, J.Kennedy)
+  - Timestamps (2. Lektion): [09:00] - [20:00]
+  - Vorstellung der Änderungen innerhalb der Sturktur, welche vorgenommen wurden (Generalisierung des Codes)
+  - Vorführen des Nutzens anhand des "Car.js"-Beispiels
+- Projector Pattern mit spezifischem CSS
+  - Einführung in die Thematik und den Nutzen (2. Lektion) [20:00] - [36:36]
+    - Wie wird das CSS organiseriert, welches für den Projector spezifsich ist, wie wird es gruppiert
+    - Analogie mit einem Interface in Java, in JS gelöst über die expliziten Modulexports / -imports (agiert als "Interfaceersatz")
+  - Livecoding (3. Lektion) [00:00] - [21:45]
+    - Mittels pageCSS im JS (als Konstante) den Style dynamisch halten & als Export angeben (geschlossene Variante - mehr Kontrolle)
+    - Alternative Variante: in einem eigenen CSS-File definieren und dieses importieren (offenere Variante - mehr Flexibilität für Zusammenarbeit)
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+
+### Vergebene Aufgaben
+- UX/UI Gestaltungskonzept für Entwickler/Projektzuweisung (D. Lagger, M. de Laat)
+
+---
 
 ## Woche 5 - Projector Pattern
 **Datum/Uhrzeit:** 23.03.2021 - 12:15 bis 15:00
