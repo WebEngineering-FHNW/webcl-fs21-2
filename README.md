@@ -3,6 +3,37 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 7 - SVG & Canvas
+**Datum/Uhrzeit:** 13.04.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges Goodie: [Rippleeffekt auf Buttons](./week7/CssRipple.html) - Timestamps Präsentation (1. Lektion): [00:00] - [38:00]
+  - Hauptthema des [Goodies sind die CSS-Custom-Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), welche in diesem Beispiel auch innerhalb von JS genutzt werden. Es wurden verschiedene Möglichkeiten vorgeschlagen, wie man gewisse Daten zentral halten kann, wobei diese Lösung explizit präsentiert wurde.
+  - Weitere behandelte Themen: [Clip-Path](https://developer.mozilla.org/de/docs/Web/CSS/clip-path), [mix-blend-mode](https://developer.mozilla.org/de/docs/Web/CSS/mix-blend-mode), [animation mit keyframes](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Animations/Using_CSS_animations) (Man beachte z.B. die Prozentangabe für den Zeitfortschritt, um das Element am Ende wieder auszublenden)
+- Präsentation der Spezialaufgabe über das Multi project planning tool (D. Lagger, M. de Laat)
+  - Präsentation UI und UX: (2. Lektion) [02:00] - [09:00]
+  - Fragen und weiterführende Diskussion [09:00] - [44:42]
+    - Diverse Inputs und Ideen für die präsentierte Lösung
+- SVG & Canvas anhand des [Progress-Gauge Beispiels](./week7/canvas-gauge-sketch/View.html)
+  - Intro (3. Lektion) [00:00] - [08:00]
+  - Walkthrough durch den Code, mehr Details zu bestimmten Teilen (3.Lektion) [08:00] - [40:00]
+  - Diskussion
+    - Hinweis auf "Problematik", dass eine .onclick-Zuweisung im Gegensatz zu addEventListener destruktiv ist bzw. die bisherigen Listener überschreibt/entfernt
+    - Die Verwendung von Canvas ist sehr performant und wird GPU-beschleunigt, sofern dies möglich ist.
+- Weitere Beispiele (3.Lektion) [40:00] - [52:00]
+  - [SVG Eyes](./week7/svg-eyes-sketch/Eyes.html)
+    - Hinweis darauf, dass SVGs bei Grafiktools beim Exportieren teilweise "vereinfacht" werden bzw. Informationen verlieren und so eine inkonsistente Darstellung entsteht. Man kann sich dazu meist nur mit einer "händischen" Korrektur helfen
+    - Man kann mit Caching und Ebenen arbeiten, damit man bei umfangreicherer Verwendung von Canvas nicht bei jeder Änderung das gesamte Bild neu rendern muss
+  - [Steelseries Canvas](https://github.com/HanSolo/SteelSeries-Canvas)
+    - Diverse UI-Elemente, welche mit Canvas umgesetzt wurden und in den Demos jeweilig "frei" konfigurierbar sind
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+
+### Vergebene Aufgaben
+- Einführung in Bezier-Kurven (P.Schmid, J.Christ)
+
+---
+
 ## Woche 6 - Projector Pattern mit spezifischem CSS (CSS++)
 **Datum/Uhrzeit:** 30.03.2021 - 12:15 bis 15:00
 
