@@ -41,7 +41,6 @@
             background:         lightsteelblue;
             mix-blend-mode:     multiply;
             clip-path:         circle(0% at var(--ripple-x) var(--ripple-y));
-            -webkit-clip-path: circle(0% at var(--ripple-x) var(--ripple-y));
         }
         button.clicked::before {
             animation: ripple ease-in-out 400ms; // note: when changing duration, update the js handler
@@ -49,15 +48,12 @@
         @keyframes ripple {
             0% {
                 clip-path:         circle(0%   at var(--ripple-x) var(--ripple-y));
-                -webkit-clip-path: circle(0%   at var(--ripple-x) var(--ripple-y));
             }
             99% {
                 clip-path:         circle(100% at var(--ripple-x) var(--ripple-y));
-                -webkit-clip-path: circle(100% at var(--ripple-x) var(--ripple-y));
             }
             100% {
                 clip-path:         circle(0%   at var(--ripple-x) var(--ripple-y));
-                -webkit-clip-path: circle(0%   at var(--ripple-x) var(--ripple-y));
             }
         }
 
