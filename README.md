@@ -7,7 +7,7 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
 **Datum/Uhrzeit:** 20.04.2021 - 12:15 bis 15:00
 
 ### Themen
-- Heutiges Goodie: [Spotlight Effekt (Eine Art Presenter)](./week8/CssSpotlight.html)) - Timestamps Präsentation (1. Lektion): [00:00] - [30:00]
+- Heutiges Goodie: [Spotlight Effekt (Eine Art Presenter)](./week8/CssSpotlight.html) - Timestamps Präsentation (1. Lektion): [00:00] - [30:00]
   - Aufbau: Transparentes Overlay mit einer gestylten Box, welche mit einem Key-Event ein Spotlight-Effekt erzeugt
   - Behandelte Themen:  [mix-blend-mode](https://developer.mozilla.org/de/docs/Web/CSS/mix-blend-mode) und Umgang mit der Problematik von Clickevents ([pointer-events](https://developer.mozilla.org/de/docs/Web/CSS/pointer-events), user-input)
   - Von Studierenden vorgeschlagener alternativer Ansatz: Mit [filter](https://developer.mozilla.org/de/docs/Web/CSS/filter) arbeiten
@@ -15,6 +15,7 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
     - Begründung für [diesen Codeteil](https://github.com/WebEngineering-FHNW/webcl-fs21-2/blob/main/week8/CssSpotlight.html#L73) mit Verweis auf [c2wiki](https://wiki.c2.com/?ElseConsideredSmelly).
 - Präsentation der Spezialaufgabe über Bézierkurven (P.Schmid, J.Christ)
   - Präsentation mit Einführung, historischer Hintergrund, Verbindung mit SVG und Beispiele: (2. Lektion) [02:00] - [13:00]
+    - [Präsentation auf Google Slides](https://docs.google.com/presentation/d/1pT7S8bgJ_2qobJpvkMp6F8IxZadv2XO0bJxByb0Rme8)
     - [Github-Repo](https://github.com/Patschee/webcl-BezierCurve)
   - Fragen und weiterführende Diskussion sowie Inputs von D.König [13:00] - [26:00]
 - Weiterführung SVG Thematik von letzter Woche
