@@ -3,6 +3,38 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 8 - Animation (& SVG Teil #2)
+**Datum/Uhrzeit:** 20.04.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges Goodie: [Spotlight Effekt (Eine Art Presenter)](./week8/CssSpotlight.html)) - Timestamps Präsentation (1. Lektion): [00:00] - [30:00]
+  - Aufbau: Transparentes Overlay mit einer gestylten Box, welche mit einem Key-Event ein Spotlight-Effekt erzeugt
+  - Behandelte Themen:  [mix-blend-mode](https://developer.mozilla.org/de/docs/Web/CSS/mix-blend-mode) und Umgang mit der Problematik von Clickevents ([pointer-events](https://developer.mozilla.org/de/docs/Web/CSS/pointer-events), user-input)
+  - Von Studierenden vorgeschlagener alternativer Ansatz: Mit [filter](https://developer.mozilla.org/de/docs/Web/CSS/filter) arbeiten
+  - Einschub bzgl. Guard-Clauses - Timestmaps (1.Lektion): [12:00-23:00] 
+    - Begründung für [diesen Codeteil](https://github.com/WebEngineering-FHNW/webcl-fs21-2/blob/main/week8/CssSpotlight.html#L73) mit Verweis auf [c2wiki](https://wiki.c2.com/?ElseConsideredSmelly).
+- Präsentation der Spezialaufgabe über Bézierkurven (P.Schmid, J.Christ)
+  - Präsentation mit Einführung, historischer Hintergrund, Verbindung mit SVG und Beispiele: (2. Lektion) [02:00] - [13:00]
+    - [Github-Repo](https://github.com/Patschee/webcl-BezierCurve)
+  - Fragen und weiterführende Diskussion sowie Inputs von D.König [13:00] - [26:00]
+- Weiterführung SVG Thematik von letzter Woche
+  - Vergleich mit Canvas. Wann sollte was genutzt werden?
+  - Erneuter Hinweis auf die Diskrepanz beim SVG-Export von verschiedenen Tools
+- Animation [51:00] - [1:55:00]
+  - Nutzen von deklarativen Animationen für numerische Werte, in CSS mit transition, animation und den keyframes. Für komplexere Dinge nicht verwendbar, da nicht implizit "bekannt", was genau animiert werden muss.
+  - Für komplexere Dinge "programmatische" Animationen. Nach der Verwendung von Timeouts und Intervals wurde heute die Methode mit [requestAnimationFrame()](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) vorgestellt.
+  - Beispiel mit dem [SVG Bucket](week8/svg-bucket-sketch/Bucket.html)
+  - Tweening (Berechnung von Zwischenschritte beim Animieren) mit Slope-Function (siehe [tween Folder](./week8/tween/View.html))
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+
+### Vergebene Aufgaben
+- CSS-Goodie (F. Henzmann)
+
+---
+
+
 ## Woche 7 - SVG & Canvas
 **Datum/Uhrzeit:** 13.04.2021 - 12:15 bis 15:00
 
