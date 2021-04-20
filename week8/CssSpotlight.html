@@ -17,8 +17,8 @@
         }
 
         #glasspane.spot-shade {
-            /*background-color: rgba(115,115,170,0.7);*/
-            /*transition: .7s;*/
+            background-color: rgba(115,115,170,0.7);
+            transition: .7s;
         }
 
         #glasspane {
@@ -27,6 +27,9 @@
             top:      0;
             width:    100vw;
             height:   100vh;
+            mix-blend-mode: multiply;
+            user-input: none;
+            pointer-events: none;
 
             /* default: no shading */
             background-color: transparent;
@@ -39,9 +42,9 @@
             width:      20vh;
             height:     20vh;
             background-color: white;
-            /*border-radius:    50%;*/
-            /*box-shadow: 0 0 1em white;*/
-            /*transform:  translateX(-50%) translateY(-50%);*/
+            border-radius:    50%;
+            box-shadow: 0 0 1em white;
+            transform:  translateX(-50%) translateY(-50%);
         }
 
     </style>
@@ -67,7 +70,7 @@
 
 <script>
     document.onmousemove = evt => {
-        if( ! evt.altKey) {
+        if( ! evt.altKey) { // guard clause
             glasspane.classList.remove('spot-shade');
             return ;
         }
