@@ -3,6 +3,46 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 9 - Custom Elements & PEP-Projektaufbau
+**Datum/Uhrzeit:** 27.04.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutige Goodies:
+  - [Starwars Lauftext](https://css-tricks.com/snippets/css/star-wars-crawl-text/) von F. Henzmann
+    - Timestamps Präsentation (1. Lektion): [02:00] - [18:00]
+    - Aufbau: Ebene wird mittels Animation langsam aus dem Bildschrim "gezogen"
+    - Behandelte Themen: [perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective), [transform](https://developer.mozilla.org/en-US/docs/Web/CSS/transform), [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)
+  - [Signature Animation](./week9/svg-signature-sketch/Signature.html)
+    - Timestamps Präsentation (1. Lektion): [18:00] - [41:00]
+    - SVG Pfad (hier eine Signatur) soll so animiert werden, dass es so aus sieht, als würde diese live gezeichnet / geschrieben
+    - Behandelte Themen: Animation mittels Stroke-Array im Pfad. Funktionsweise wird im Recording ([22:00] - [26:00]) mittels Skizze veranschaulicht
+- Custom Elements HTML (Gesamte 2. Lektion [00:00] - [48:57])
+  - Nutzung von selbstgebauten HTML Elemente via Tags oder createElement
+  - Kurze Ausführungen bzgl. Webcomponents und wie die Begriffe vertauscht werden (Was ist ein Customelement und was Components)
+  - Betrachtung des [Square-Beispiels](./week9/custom-elements/CustomElement.html)
+    - Aufzeigen der Funktionsweise anhand dieses Beispiels, welche Dinge damit möglich sind und vorallem welche Schwierigkeiten sich daraus ergeben
+    - Fragestellung "Was soll das Element unterstützen?" - Manche Eigenschaffen lassen sich aufgrund der Vererbung nicht ignorieren, sind jedoch für das erstellte Element praktisch irrelevant.
+  - Adoption von WebComponents (Polymer etc.) nicht so breit wie erwartet. Hinweis, dass diese Dinge der Darstellung dienen aber nicht für die Applikationsstrukturierung, obwohl dies oft genau für das "missbraut".
+  - Auflisten von Alternativen zu WebComponents
+- Aufbau des begleitenden Projekts der Personaleinsatzplanung (Gesamte 3. Lektion [05:00] - [40:00])
+  - Demo des lauffähigen Sketchs als Alternative zu Paper-Prototyp oder Figma/Adobe Xd, welcher als Prototyp zur Veranschaulichung der Idee und Grundfunktionalität dient [13:00] - [27:00]
+  - Walkthrough durch den Code [28:00] - [40:00]
+    - Styling und HTML [28:00] - [31:00]
+    - Relationales Modell im UI [31:00] - [33:00]
+    - Javascript [33:00] - [40:00]
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+
+### Vergebene Aufgaben
+- React (R. von Arx, C. Kym)
+- SVG-Eyes in VueJs (P. Schmid, J. Hänggi)
+- Svelte (L. Kern, R. Winkelmann)
+- SVG-Eyes in Angular (A. Gervalla, P. Mühlthaler)
+
+---
+
+
 ## Woche 8 - Animation (& SVG Teil #2)
 **Datum/Uhrzeit:** 20.04.2021 - 12:15 bis 15:00
 
