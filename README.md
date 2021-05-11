@@ -3,7 +3,7 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
-## Woche 10 - Vorstellung der SVG Eyes als Implementierung in verschiedene Frameworks
+## Woche 10 - Vorstellung von verschiedenen Frameworks
 **Datum/Uhrzeit:** 11.05.2021 - 12:15 bis 15:00
 
 ### Themen
