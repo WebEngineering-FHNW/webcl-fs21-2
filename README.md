@@ -3,6 +3,69 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 10 - Vorstellung der SVG Eyes als Implementierung in verschiedene Frameworks
+**Datum/Uhrzeit:** 11.05.2021 - 12:15 bis 15:00
+
+### Themen
+Heute keine neuen Slides oder ein Goodie, "nur" Studierendenbeiträge
+- SVG-Eyes in **Angular** (A. Gervalla, P. Mühlthaler - [Link zum Repo](https://github.com/MFJonesX/SvgEyesAngular))
+  - Präsentation (Timestamps: [09:35] - [33:00])
+    - Einführung in Angular allgemein. Aufbau mit TypeScript, HTML + CSS
+      - [angular.json](https://angular.io/guide/workspace-config) als Konfigurationsdatei für den Workspace und das Projekt
+      - [ts.config](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) Konfiguration für Typescript
+    - Angular bietet wie andere Frameworks auch ein cli für den einfachen Umgang (Projekt erstellen, Server mit Hot-Reloading, Build etc.)
+    - Komentenaufbau für Unabhängigkeit der einzelnen Teile und Wiederverwendbarkeit
+    - Services und Shared-Teile für die Verwendung in Komponenten bzw. Aufteilung von gemeinsam genutzten Strukturen
+    - Man schreibt html + css mit der gleichen syntax, es ist aber nicht pur. Angular "konvertiert" die Bestandteile -> Probleme mit der Validität etc.
+  - Probleme bei der Umsetzung
+    - Keine Defaultwerte für die Koordinaten angegeben -> HTML wurde nicht korrekt aufgebaut
+    - Debugging mittels Browserkonsole und "Durchdenken"
+    - Hinweis, am besten immer immutable Datenstrukturen zu verwenden (was im Browser schwer ist) - Beispiel mit Koordinaten der Maus übergeben, statt den ganzen MouseEvent
+  - Fragen & Diskussion (Am besten selbst nachschauen, waren viele und wurden umfangreich beantwortet. Timestamps: [33:30] - [01:02:55])
+- SVG-Eyes in **React** (R. von Arx, C. Kym - [Link zum Repo](https://github.com/remo-vonarx/webcl-fs21-2-react-eyes))
+  - Präsentation (Timestamps 2. Lektion: [04:20] - [13:55])
+    - Einführung in React (Vorallem die Betrachtung der Lifecyclemethoden einer Komponente)
+    - Hinweis Debug-Tools (Extensions) für verschiedene Browser
+    - Vergleich mit Angular: Schlanker, weniger Vorgaben bzgl. Strukturierung der gesamten Applikation
+    - Kleine Diskussion bzgl. Class-Components vs. Functional-Componentens:
+      - Class-Components eher für Dinge, für welche man die Lifecycle-Methoden verwenden muss - mit einer return()-function
+      - Functional-Components sind "pure" JS-Funktionen (nicht im Sinne einer "normalen" puren Funktion ohne Seiteneffekte), welche den "zu rendernden" Teil zurückgeben (Die return-function ist im Prinzip die Komponente selbst)
+    - Verbesserungsvorschlag bzw. Hinweis von Herrn König:
+      - Was macht die Komponente, welchen Zustand bewirtschaftet sie?
+      - Dinge die für/im Komponent unveränderlich sind -> Props; Dinge die für Komponent veränderlich -> State
+  - Fragen & Diskussion (Timestamps 2. Lektion: [14:10] - [32:00])
+- SVG-Eyes in **Svelte** (R. Winkelmann - [Link zum Repo](https://github.com/FHNW-RW/webcl-svelte))
+  - Präsentation (Timestamps 3.Lektion: [02:00] - [18:00])
+    - Einführung in Svelte und Demo
+    - Erklärung der Applikationsstruktur, export keyword für Funktionen
+    - Sehr schlank im Vergleich zu den bereits vorgestellten Frameworks
+    - Tiefergehende Erklärungen, wie die [Elementdirektiven](https://svelte.dev/docs#Element_directives) konkret verwendet wurden
+    - Hinweis auf die [Reactive Deklaration](https://svelte.dev/docs#script) bzw. warum dies so verwendet wurde
+    - Näherer Erläuterungen zu [Bindings](https://svelte.dev/docs#bind_element_property)
+  - Einarbeitung belief sich auf etwa 2-3 Stunden, ging aber gut
+  - Fragen & Diskussion (Timestamps 3. Lektion [18:00] - [26:00])
+- SVG-Eyes in **VueJs** (P. Schmid, J. Hänggi - [Link zum Repo](https://github.com/Patschee/Webcl_EyesSVG_Haenggi-Schmid))
+  - Präsentation (Timestamps 3. Lektion: [28:00] - [32:00])
+    - Einführung in VueJs
+    - Lösung mit einer einzigen Komponente, welche den bereits bestehenden Code einbettet
+    - Hinweis auf das Statemanagement und die Lifecycle-Methoden
+  - Fragen & Diskussion (Timestamps 3. Lektion: [34:00] - [35:00])
+- Abschliessende Diskussion
+  - Hypothetische Aufgabe, die SVG-Eyes zu bauen, mit Einschränkung auf eine schon bestehende Codebasis und vorgegebenem Framework
+  - Abstimmung, welche Frameworks nach den Vorstellungen heute präferiert werden
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+- Punkte im Excel checken :P
+
+### Vergebene Aufgaben
+- React (R. von Arx, C. Kym)
+- SVG-Eyes in VueJs (P. Schmid, J. Hänggi)
+- Svelte (L. Kern, R. Winkelmann)
+- SVG-Eyes in Angular (A. Gervalla, P. Mühlthaler)
+
+---
+
 ## Woche 9 - Custom Elements & PEP-Projektaufbau
 **Datum/Uhrzeit:** 27.04.2021 - 12:15 bis 15:00
 
