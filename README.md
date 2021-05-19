@@ -3,6 +3,38 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 11 - REST (anhand des PEP-Beispiels)
+**Datum/Uhrzeit:** 18.05.2021 - 12:15 bis 15:00
+
+### Themen
+Einführung in den 3. Teil: Remoting und anspruchsvolle UIs
+- Heutiges CSS-Goodie (Timestamps 1. Lektion [00:00] - [47:00]) 
+  - [hsl Farben](./week11/HslColors.html)
+    - Exkurs: Erklärungen zu den verschiedenen [Farbkreisen](https://www.w3schools.com/colors/colors_wheels.asp) und deren Verwendung
+    - Wenn man mit Farben "rechnen" muss -> Zu [hsl](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()) greifen
+      - Erklärung der verschiedenen Werte (Hue, Saturation & Lightness)
+    - Walkthrough durch den Code [HslColors.html](./week11/HslColors.html)
+- Server-Client Modell & [Server](https://github.com/WebEngineering-FHNW/webcl-hs19-server) lokal einrichten
+  - Erklärung der Position des Clients und was der Server anbietet (2. Lektion [00:00] - [05:00])
+  - Einführung in den Code des Servers (2. Lektion [20:00] - [46:00])
+    - Erklärung Domainmodell und Relationen
+    - Endpunkte mittels Grails
+  - Häufiger Fehler, wenn man einfach nur "CRUD"-Enpunkte hat: Underfetching (3. Lektion [00:00] - [17:00])
+    - Alleine zum Start der Applikation müssen viele HTTP-Requests gesendet werden, um alle Daten zu erhalten
+    - "Man muss in der Lage sein, auch spät im Projekt neue spezialisierte Endpunkte zur Verfügung zu stellen"
+      - Endpunkte die beispielsweise gefilterte Daten zurückgeben oder eine gewisse Logik unterstützen (und diese so vom Client zum Server transferiert)
+  - [Restclient](./week11/rest/restClient.js) im Client-Code (3. Lektion [17:00] - [35:46])
+    - Einführung in den Code - Einfacher Aufbau mit FetchAPI statt einer schwergewichtigen Library
+      - Nähere Erläuterung zu den verschiedenen Promises
+      - Erklärung zu den HTTP-Headers, die angegeben wurden (Warum & welche Optionen es gibt)
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+
+### Vergebene Aufgaben
+- Keine
+
+---
+
 ## Woche 10 - Vorstellung von verschiedenen Frameworks
 **Datum/Uhrzeit:** 11.05.2021 - 12:15 bis 15:00
 
