@@ -3,6 +3,41 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 12- Service Abstraction
+**Datum/Uhrzeit:** 25.05.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges [CSS-Goodie](./week12/Goodie-Visible-Header.html) (Timestamps 1. Lektion [00:00] - [09:00])
+  - Sticky Header für bessere Nutzung von langen Tabellen
+  - top: 0 -> Wenn der Wert beim Scrollen überschritten wird, dann wird das Element oben aus dem Viewport geschoben; position: sticky
+  - **Funktioniert in Chrome nicht**
+- Einführung Service Abstraction [09:00] - [38:31] & ganze Lektion 2
+  - Recap letzte Woche
+  - Interface für mehrere Implementierungen vom Service (Lokal & Remote) -> Interfaces mit JSDoc (eher als Hilfe in der IDE als für HTML-Reports)
+    - Stichwort ["Duck-Typing"](https://de.wikipedia.org/wiki/Duck-Typing)
+      - Diskussion über alternativer Ansatz mittels mit Prototypes
+    - Import [domainDoc.js](./week11/pep/domainDoc.js) (Nur JsDoc-Definitionen im File)
+    - Examples gut für den Entwickler
+    - Verweis auf [Praxisbeispiel](https://github.com/mattwolf-corporation/ip6_lambda-calculus-in-js) - Projektarbeit mit einer guten Dokumentation
+  - Code-Walkthrough [jsonToModel](./week11/pep/service/jsonToModel.js)-Mapping & den verschiedenen service-Implementationen (siehe /service-Ordner)
+    - Unterschiede & Gemeinsamkeiten
+    - Abstract Factory Pattern
+    - Wie man die Applikation mit dem jeweiligen Service startet
+- "Integrating Changes" (Lektion 3)
+  - ShadowDOM, um das bestehende Element durch das neue "vorgerenderte" Element zu ersetzen
+    - Replacement ist schwer, wenn es während User-Events laufen soll
+  - Alternativen:
+    - Observable -> Memory-Leaks vermeiden, Fehleranfällig
+### Empfohlene Aktivitäten auf nächste Woche
+- Feedback Lehrevaluation ausfüllen
+- Review
+
+### Vergebene Aufgaben
+- JsDoc für Rest, Test & Util (J. Villing)
+- PEP CSS (D. Lagger, M. de Laat)
+
+---
+
 ## Woche 11 - REST (anhand des PEP-Beispiels)
 **Datum/Uhrzeit:** 18.05.2021 - 12:15 bis 15:00
 
