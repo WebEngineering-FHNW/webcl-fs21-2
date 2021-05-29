@@ -1,14 +1,16 @@
 /**
- * Interface for a Test ISuite
+ * Interface for a TestSuite
  *
  * @typedef {
-                {add: function(String, onRunTestCallback)   : number,
-                test: function(String, onRunTestCallback)  : void,
-                run: function()                            : void}
+                {add: function(testName: String, testLogic: onRunTestCallback): number,
+                test: function(testName: String, testLogic: onRunTestCallback): void,
+                run: function(): void}
            } ISuite
  */
 
 /**
+ * Interface for an Assert instance.
+ *
  * @typedef  {{
                 true: function(Boolean): void,
                 is: function(T, T): void,
@@ -16,9 +18,9 @@
             }} IAssert
  */
 
-
 /**
  * @callback onRunTestCallback
- * @param  {Assert}
+ * @param    {IAssert} Assert for reporting
+ * @return   void
  */
 
