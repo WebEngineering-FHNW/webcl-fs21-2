@@ -1,0 +1,7 @@
+/**
+ * @typedef Assert
+ */
+
+/**
+ * @typedef Suite
+ */
