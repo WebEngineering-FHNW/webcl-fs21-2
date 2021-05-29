@@ -8,6 +8,11 @@ import { id }                 from "../church/church.js";
 
 let total = 0;
 
+/**
+ * Concrete implementation for {@link IAssert}
+ * @constructor
+ * @returns {IAssert}
+ */
 function Assert() {
     const results = []; // [Bool], true if test passed, false otherwise
     return {
@@ -34,6 +39,11 @@ function test(name, callback) {
     report(name, assert.results)
 }
 
+/**
+ * Concrete implementation for {@link ISuite}
+ * @constructor
+ * @returns {ISuite}
+ */
 function Suite(suiteName) {
     const tests = []; // [Test]
     const suite = {
