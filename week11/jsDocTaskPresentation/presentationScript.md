@@ -18,12 +18,21 @@
 
 
 ## Demonstartion
+
+### Testing & Util
+
 * We all know testing is important => Since the testing framework now has jsdoc, let's see that in action.
 * Create myNewTest.js
 * Import Suite => name param & description is shown
 * Create new Suite 
 * suite. => Available methods are shown with signature
-* suite.
+* suite.add => Test name
+* autocomplete init test callbak
+* I also added jsDoc for the util package, so let's use that to test
+* Import padLeft
+* Apply -> actual
+* assert.is to expected
+* Now we still need to run it -> autocomplete shows us suite.run()
 
 
 # ----------------------------- DRAFT -----------------------------
