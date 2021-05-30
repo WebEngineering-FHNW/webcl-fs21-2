@@ -16,7 +16,6 @@
  * This is an extension function to the {string} and {Number} prototypes.
  * If the function is called on a {string} it is expected, that this string is a valid integer representation
  *
- *
  * @function times
  * @throws {NotANumberException} - If called on a string that is not a valid integer representation
  * @param callback
