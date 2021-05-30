@@ -70,8 +70,13 @@ function Suite(suiteName) {
     return suite;
 }
 
-// test result report
-// report :: String, [Bool] -> DOM ()
+/**
+ * Creates the test result report
+ *
+ * @function report
+ * @param {string} origin - Origin of the asserted tests
+ * @param {[Boolean]} ok - Array of assertion results
+ */
 function report(origin, ok) {
     const extend = 20;
     if ( ok.every( elem => elem) ) {
@@ -89,11 +94,24 @@ function report(origin, ok) {
     bar(reportLine.length);
 }
 
+/**
+ * Writes a message to the document.
+ *
+ * The message will become visible in the element with Id 'out' in the document.
+ * It is expected that such an element is already present.
+ *
+ * @param {string }message
+ */
 function write(message) {
     const out = document.getElementById('out');
     out.innerText += message + "\n";
 }
 
+/**
+ * Prints a bar with style "+-+" of length (extend + 2)
+ *
+ * @param {number} extend
+ */
 function bar(extend) {
     write("+" + "-".repeat(extend) + "+");
 }
