@@ -6,12 +6,17 @@ import { padLeft, padRight}   from "../util/strings.js"; // for formatting the r
 import { Tuple }              from "../church/rock.js";
 import { id }                 from "../church/church.js";
 
+/**
+ * @name total
+ * @description Total number of {@link Assertion}s that have been tested.
+ * @type {number}
+ */
 let total = 0;
 
 /**
- * Concrete implementation for {@link IAssert}
  * @constructor
- * @returns {IAssert}
+ * @alias AssertionConstructor
+ * @returns {Assertion}
  */
 function Assert() {
     const results = []; // [Bool], true if test passed, false otherwise
@@ -40,9 +45,11 @@ function test(name, callback) {
 }
 
 /**
- * Concrete implementation for {@link ISuite}
+ * Represents a TestSuite
  * @constructor
- * @returns {ISuite}
+ * @alias TestSuiteConstructor
+ * @param {string} suitName - The name for the Suite
+ * @returns {TestSuite}
  */
 function Suite(suiteName) {
     const tests = []; // [Test]
