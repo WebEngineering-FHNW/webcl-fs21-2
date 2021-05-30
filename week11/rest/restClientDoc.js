@@ -3,9 +3,9 @@
  * Makes a http call to the given url using the given method as http method and data as request body.
  *
  * @typedef {Function} RestClient
- * @param {string} url
- * @param {string=GET} method
- * @param {object=null} data
+ * @param {!string} url
+ * @param {?string=GET} method
+ * @param {?object=null} data
  *
  * @return {RestResponse}
  *
