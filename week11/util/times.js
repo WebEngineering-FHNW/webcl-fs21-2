@@ -13,10 +13,12 @@
 /**
  * Repeats a given callback i times.
  *
- * This is an extension function to the {string} and {Number} prototypes.
+ * This is an extension function to the {@link String} and {@link Number} prototypes.
  * If the function is called on a {string} it is expected, that this string is a valid integer representation
  *
  * @function times
+ * @extends {String}
+ * @extends {Number}
  * @throws {NotANumberException} - If called on a string that is not a valid integer representation
  * @param callback
  */

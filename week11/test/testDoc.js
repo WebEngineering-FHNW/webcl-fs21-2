@@ -13,7 +13,7 @@
  *
  * @typedef  {{
                 true: function(Boolean): void,
-                is: function(actual: T, expected: T): void,
+                is: function(actual: any, expected: any): void,
                 results: [Boolean]
             }} Assertion
 
