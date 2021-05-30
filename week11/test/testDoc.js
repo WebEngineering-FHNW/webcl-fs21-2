@@ -1,26 +1,27 @@
 /**
- * Interface for a TestSuite
+ * Type definition for a Test Suite
  *
  * @typedef {
-                {add: function(testName: String, testLogic: onRunTestCallback): number,
+                {add: function(testName: String, testLogic: onRunTestCallback): number ,
                 test: function(testName: String, testLogic: onRunTestCallback): void,
                 run: function(): void}
-           } ISuite
+           } TestSuite
  */
 
 /**
- * Interface for an Assert instance.
+ * Type definition for an Assertion
  *
  * @typedef  {{
                 true: function(Boolean): void,
-                is: function(T, T): void,
+                is: function(actual: T, expected: T): void,
                 results: [Boolean]
-            }} IAssert
+            }} Assertion
+
  */
 
 /**
  * @callback onRunTestCallback
- * @param    {IAssert} Assert for reporting
+ * @param    {Assertion} Assert for reporting
  * @return   void
  */
 
