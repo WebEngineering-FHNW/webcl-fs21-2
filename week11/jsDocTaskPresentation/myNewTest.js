@@ -9,12 +9,6 @@ suite.add("myNewTest", assert => {
     assert.is(actual, "  123");
 });
 
-suite.add("myOtherNewTest", assert => {
-    const collector = [];
-    (10).times(i => collector.push(i));
-    assert.is(collector.length, 10);
-});
-
 suite.run();
 
 
