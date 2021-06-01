@@ -1,7 +1,9 @@
 /**
  * Type definition for a Test Suite.
  *
- * A test suit can be used to add and run tests.
+ * A TestSuite can be used to run any number of tests.
+ * Tests have to be first added to the Suite calling add().
+ * After adding all desired test, the tests can be evaluated using run().
  *
  * @typedef {
                 {add: function(testName: String, testLogic: onRunTestCallback): number ,
