@@ -1,20 +1,35 @@
-# ----------------------------- DRAFT -----------------------------
-# Presentation of JS Doc Assignment
+# Week 12 - JS Doc Assignment
 
-
-## Agenda
- 
-* Demonstration of IDE Support
-* Show actual JSDoc
-* Explain some of the choices I made & explain alternatives
-
+----
 
 ## What I did
 
-* Write JSDoc
-* Bit weird to get used to
+* Write JSDoc for packages
+    * Rest
+    * Test
+    * Util
+    
+* Prepare Live Demo to see IDE Support with JSDoc
+
+------
 
 
+## What I will show
+ 
+* Live Demo
+  * Write a test
+  * Use the RestClient 
+* Show actual JSDoc
+* Room for improvement
+
+------
+  \
+  \
+  \
+  \
+  \
+  \
+  \
 ## Demonstartion
 
 ### Testing & Util
