@@ -55,6 +55,13 @@ function Suite(suiteName) {
     const tests = []; // [Test]
     const suite = {
         test: (testName, callback) => test(suiteName + "-"+ testName, callback),
+
+        /**
+         *
+         * @param testName
+         * @param callback
+         * @return {number}
+         */
         add:  (testName, callback) => tests.push(Test (testName) (callback)),
         run:  () => {
             const suiteAssert = Assert();

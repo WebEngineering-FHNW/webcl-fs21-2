@@ -67,12 +67,7 @@
 * Make url invalid => Show error in console
 
 
-## Show Doc
-
-* Just do it
-
-
-## What to do differently
+## Show Doc & What to do differently
 
 * RestClient => typedef on base of {Function}
     * No interface for single method
@@ -90,7 +85,3 @@
 * More descriptive texts on how to use the test framework or a better starting point would help.
     * This could be done more efficiently in an external documentation.
 
-
-
-
-# ----------------------------- DRAFT -----------------------------
