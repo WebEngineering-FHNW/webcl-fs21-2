@@ -16,3 +16,4 @@
  * @property {!string}  name - descriptive project name; at least three chars.
  * @example  {id:0, color: 'red',   name: "Personal Einsatz Planung"},
  */
+

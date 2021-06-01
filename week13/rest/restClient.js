@@ -1,24 +1,16 @@
-
 export { client }
 
-/**
- * Makes a http call to the given url using the given method as http method and data as request body.
- *
- * @type {RestClient}
- * @see RestClient
- * @return RestResponse
- */
 const client = (url, method = 'GET', data = null) => {
     const request = {
         method: method,                  // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors',                   // no-cors, *cors, same-origin
+        mode: 'same-origin',             // no-cors, *cors, same-origin
         cache: 'no-cache',               // no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin',      // include, *same-origin, omit
         headers: {
             'Content-Type': 'application/json', // 'application/x-www-form-urlencoded'
         },
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // no-referrer, *client
+        redirect: 'follow',             // manual, *follow, error
+        referrer: 'no-referrer',        // no-referrer, *client
     };
     if (null != data) {
         request.body = JSON.stringify(data)
