@@ -3,7 +3,62 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
-## Woche 12- Service Abstraction
+## Woche 13 - Reactive, Stable Binding
+**Datum/Uhrzeit:** 01.06.2021 - 12:15 bis 15:00
+
+### Themen
+- Heutiges [CSS-Goodie](./week13/Glossy.html) (Timestamps 1. Lektion [00:00] - [17:15])
+  - Glossy Buttons (Glanzeffekt  bei Hover)
+  - [Before-Pseudoelement](https://developer.mozilla.org/de/docs/Web/CSS/::before), [radial-gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient()), [custom-properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- JsDoc für Rest, Test & Util (J. Villing)
+  - Code [hier im Repo](./week11/jsDocTaskPresentation/)
+  - Livecoding (Timestamp: [17:15] - [27:00])
+    - Veranschaulichung der IDE-Integration innerhalb eines Tests ([myNewTest.js](./week11/myNewTest.js))
+  - RestClient (Timestamp: [27:00] - [38:00])
+    - Typedefs & Examples
+    - Gedanken bzgl. Interfaces
+    - JsDoc im Allgmeinen, Rückblick & Kritik
+- Neues CSS für Personaleinsatzplanung (D. Lagger, M. de Laat)
+  - Timestamp (2. Lektion: [00:00] - [20:00])
+  - Kritik und Überlegungen bzgl. des alten Designs
+  - Einführung ins neue Design (Stil, Farbwahl)
+    - Demo für die Veranschaulichung des Umgangs
+    - Diskussion
+- Reactive, Stable Binding
+  - Anzeige der gleichen Information durch mehrere Komponenten
+  - Modularer Aufbau, möglichst wenig Wissen einer Komponenten über alle Anderen
+  - Theorie (Timestamp 2. Lektion [20:00] - [53:03] & 3. Lektion [00:00] - [13:00])
+    - Shared-Model
+      - Problematik der Identitätserhaltung (Wie wird ermittelt, was sich verändert hat)
+      - Bindings (Gleicher Converter, gleicher Validator etc)
+    - View-Specific Models
+      - Stabiles Binding von Elementen zum Presentation-Model (1x Binden, Zuordnung öndert sich nie)
+    - Deklarative Attribute
+      - Qualifier zum Ermitteln, welche Daten sich geändert haben (Reaktives Binding)
+      - Qualifier vergeben, falls jmd. anders Interesse haben könnte
+      - Komponenten können einfach rausgelöscht, hinzugefügt und verändert werden, ohne dass die anderen Elemente betroffen sind
+    - Konzept "Model-World"
+      - Es gibt nur eine Model-World / ein Kontext für das UI
+      - Kontext für Attribute und Qualifier
+      - Regeln in den Model-World (Siehe Slides)
+  - Code-Walkthrough (Timestamp 3. Lektion [13:00] - [47:00])
+    - Demo
+    - [person.js](./week13/person/person.js)
+    - [instantUpdateProjector.js](./week13/person/instantUpdateProjector.js)
+    - [presentationModel.js](./week13/presentationModel/presentationModel.js)
+    - Tests
+    - Wiederverwendbarkeit der Projektoren
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Review
+- Code fürverstehen und Fragen aufschreiben
+
+### Vergebene Aufgaben
+- Keine
+
+---
+
+## Woche 12 - Service Abstraction
 **Datum/Uhrzeit:** 25.05.2021 - 12:15 bis 15:00
 
 ### Themen
