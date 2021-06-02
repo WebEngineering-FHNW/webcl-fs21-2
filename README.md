@@ -11,7 +11,7 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
   - Glossy Buttons (Glanzeffekt  bei Hover)
   - [Before-Pseudoelement](https://developer.mozilla.org/de/docs/Web/CSS/::before), [radial-gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/radial-gradient()), [custom-properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 - JsDoc für Rest, Test & Util (J. Villing)
-  - Code [hier im Repo](./week11/jsDocTaskPresentation/)
+  - Code [hier im Repo](./week11/jsDocTaskPresentation/presentationScript.md)
   - Livecoding (Timestamp: [17:15] - [27:00])
     - Veranschaulichung der IDE-Integration innerhalb eines Tests ([myNewTest.js](./week11/myNewTest.js))
   - RestClient (Timestamp: [27:00] - [38:00])
@@ -50,8 +50,8 @@ Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im j
     - Wiederverwendbarkeit der Projektoren
 
 ### Empfohlene Aktivitäten auf nächste Woche
+- Code für das heutige Konzept verstehen und Fragen aufschreiben
 - Review
-- Code fürverstehen und Fragen aufschreiben
 
 ### Vergebene Aufgaben
 - Keine
