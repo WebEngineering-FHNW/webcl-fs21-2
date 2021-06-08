@@ -3,6 +3,33 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 14 - Applied Concepts
+**Datum/Uhrzeit:** 08.06.2021 - 12:15 bis 15:00
+
+### Themen
+- Lektion 1 & 2 Besprechung der Lehrevaluation
+  - Siehe Feedback Pdf in Teams (Woche 14)
+  - Erklärung bzw. Hintergründe der Bewertung und Diskussionen
+- Lektion 3: Fortsetzung der Lösung letzter Woche
+  - Personenansicht: Korrektes verhalten des Detail-Views, wenn keine Person ausgewählt ist (Was passiert, wenn die "Nicht-Person" ausgewählt ist)
+    - Heutiges [Goodie](./week14/Goodie-Almost-3D.html) - 3d-Effekt für das den "eingeklappten" Zustand (Timestamps: [00:00] - [15:00])
+      - [transform](https://developer.mozilla.org/de/docs/Web/CSS/transform), [transform-origin](https://developer.mozilla.org/de/docs/Web/CSS/transform-origin) & [perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
+  - Einführen in die Lösung und gemeinsame Modifikation (Timestamps: [15:00] - [51:47])
+    - Hinzufügen eines "detailed"-Qualifiers
+    - Behanldung der "Nicht-Person"
+    - Ausführungen bzgl. dem Aufbau bzw. der Organisation der Daten
+      - ModelWorld statt "Bindstorm" - Nicht "viel" neue Logik implementieren, sondern das Modell erweitern
+    - Livecoding für die richtige Handhabung, wenn keine Person selektiert ist
+
+### Empfohlene Aktivitäten auf nächste Woche
+- Identifizieren von Teilen, die man verstanden hat, solche die unklar sind und welche man überhaupt nocht nicht versteht
+- Review
+
+### Vergebene Aufgaben
+- Keine
+
+---
+
 ## Woche 13 - Reactive, Stable Binding
 **Datum/Uhrzeit:** 01.06.2021 - 12:15 bis 15:00
 
