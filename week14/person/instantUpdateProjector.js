@@ -18,8 +18,8 @@ const bindTextInput = (textAttr, inputElement) => {
 
     textAttr.getObs(EDITABLE, true).onChange(
         isEditable => isEditable
-        ? inputElement.removeAttribute("readonly")
-        : inputElement.setAttribute("readonly", true));
+        ? inputElement.removeAttribute("disabled")
+        : inputElement.setAttribute("disabled", true));
 
     textAttr.getObs(LABEL, '').onChange(label => inputElement.setAttribute("title", label));
 };
