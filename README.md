@@ -3,6 +3,41 @@
 
 Die *Aufzeichnungen* sowie der aktuelle *Punktestand* der Studierenden sind im jeweiligen Wochenchannel innerhalb von Teams verfügbar.
 
+## Woche 15 - Team App: Putting it all together
+**Datum/Uhrzeit:** 15.06.2021 - 12:15 bis 15:00
+
+### Themen
+- Einführung in die Synchronisation der Team-Applikation (Live Mulituser) (Timestamps 1. Lektion: [04:20] - [18:00])
+  - Beispiel mit der Punktevergabe in Teams
+  - Welche Ansätze & Strukturen werden verwendet, um ein solches UI zu bauen und wie diese in unserer CaseStudy (PEP) konkret aussehen könnten
+- Diverse konkrete Beispiele für solche Apps (Timestamps 1. Lektion: [17:00] - [33:30])
+  - **Follow-me**: Mailclients, Kalender, Passwordmanager etc.
+    - Applikationen, welche ihren Datenstand über mehrere Geräte hinweg synchronisieren
+  - **Team Apps**: Microsoft Teams, Google Docs etc.
+    - Applikationen, in welchen eine Kollaboration mit mehreren anderen Nutzern live möglich bzw. explizit gewünscht ist
+  - Andere Beispiele aus der Industrie für "spezifischere" Use-Cases, welche als Motivation/Anregung dienen sollen, was technologisch möglich ist
+- Konzept zur Umsetzung & mögliche neue Probleme, welche mit einer solchen Lösung auftreten (Timestamps: [33:30] - [44:20])
+  - Self-Notifcation: Die eigenen Änderungen werden an den Server gesendet, welcher diese erneut an (neben den anderen Nutzern) den eigenen Nutzer sendet. Wie wird damit umgegangen?
+  - Hysterese: Die Änderungen der verschiedenen Nutzer hängen hinterher bzw. geraten aus einem synchronisierten Gesamtzustand
+- Demo der Personaleinsatzplanung (Timestamps 2. Lektion [00:00] - [23:30])
+  - Hinweis, dass für die Implementierung solcher Features technologische und konzeptionelle Überlegungen für das UI, die Protokolle und das Modell gemacht werden müssen
+  - Vorführung der gleichzeitigen Nutzung mit einer anderen Person
+  - Gemeinsame Nutzung mit allen Studierenden in der Klasse, um auf die offenen Probleme (wie z.B die Hysterese) aufmerksam zu machen bzw. diese zu erzingen und so vorzuführen
+  - Eingehen auf weitere offene Probleme bzw. wie diese auch behoben werden können, welche Ansätze es gibt. (Timestamps 2. Lektion: [23:30] - [34:38])
+- Abschluss: Code-Walkthrough & AMA
+  - Verweis auf die Thesis [Event Based Real-Time Synchronization of Web Applications](https://dierk.github.io/Home/data/documentation_P6_Etienne_Gobel_Robin_Christen.pdf), welche (unter anderem) auf verschiedene Arten von Duplex-Kommunikation (Kapitel 3) innerhalb des Webs eingeht. (Timestamps 3. Lektion: [00:00] - [09:00])
+  - Code-Walkthrough der Lösung für die "Team"-Personaleinsatzplanung (Timestamps 3. Lektion: [09:00] - [38:30])
+  - Ask me anything (Timestamps 3. Lektion: [38:30] - [49:40])
+    - Frage zur Meinung bzw. Empfehlung, wie ein komprimiertes JS für den produktiven Betrieb gebaut werden soll
+      - Verweis auf [rollup](https://rollupjs.org/) und [parcel](https://parceljs.org/), wobei letzeres auch mehr Features bietet, als eigentlich für das effektive bundling gewollt sind. Die ausführliche Antwort mit weiteren Anmerkungen zu Buildsystemen wie npm bitte aus dem Recording entnehmen.
+### Empfohlene Aktivitäten auf nächste Woche
+- Allenfalls Punkte-Endstand überprüfen
+
+### Vergebene Aufgaben
+- Keine
+
+---
+
 ## Woche 14 - Applied Concepts
 **Datum/Uhrzeit:** 08.06.2021 - 12:15 bis 15:00
 
