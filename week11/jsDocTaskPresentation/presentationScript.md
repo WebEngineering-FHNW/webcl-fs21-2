@@ -1,20 +1,35 @@
-# ----------------------------- DRAFT -----------------------------
-# Presentation of JS Doc Assignment
+# Week 12 - JS Doc Assignment
 
-
-## Agenda
- 
-* Demonstration of IDE Support
-* Show actual JSDoc
-* Explain some of the choices I made & explain alternatives
-
+----
 
 ## What I did
 
-* Write JSDoc
-* Bit weird to get used to
+* Write JSDoc for packages
+    * Rest
+    * Test
+    * Util
+    
+* Prepare Live Demo to see IDE Support with JSDoc
+
+------
 
 
+## What I will show
+ 
+* Live Demo
+  * Write a test
+  * Use the RestClient 
+* Show actual JSDoc
+* Room for improvement
+
+------
+  \
+  \
+  \
+  \
+  \
+  \
+  \
 ## Demonstartion
 
 ### Testing & Util
@@ -52,12 +67,7 @@
 * Make url invalid => Show error in console
 
 
-## Show Doc
-
-* Just do it
-
-
-## What to do differently
+## Show Doc & What to do differently
 
 * RestClient => typedef on base of {Function}
     * No interface for single method
@@ -75,7 +85,3 @@
 * More descriptive texts on how to use the test framework or a better starting point would help.
     * This could be done more efficiently in an external documentation.
 
-
-
-
-# ----------------------------- DRAFT -----------------------------

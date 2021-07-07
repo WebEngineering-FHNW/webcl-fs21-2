@@ -1,20 +1,18 @@
 import { Suite } from "../test/test.js";
 import { padLeft } from "../util/strings.js";
-import "../util/times.js"
 
-const suite = Suite("myNewSuite");
+const suite = Suite("mySuite");
 
-suite.add("myNewTest", assert => {
-    const actual = padLeft("123", 5);
-    assert.is(actual, "  123");
-});
+suite.add("test", assert => {
+    // Given
+    const initialString = "123";
+    const extend = 5;
 
-suite.add("myOtherNewTest", assert => {
-    const collector = [];
-    (10).times(i => collector.push(i));
-    assert.is(collector.length, 10);
+    // When
+    const actual = padLeft(initialString, extend);
+
+    // Then
+    assert.is(actual, "  " + initialString);
 });
 
 suite.run();
-
-
